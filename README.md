@@ -28,12 +28,12 @@ We provide a framework where code becomes the natural result of a precise specif
 
 This project organizes documentation and tracks into English (`docs/en/`) and Brazilian Portuguese (`docs/pt-BR/`) mirrors.
 
-### 📜 [Guides and Manuals](docs/en/)
+### [Guides and Manuals](docs/en/)
 
 - [**Spec-Driven Governance Guide**](docs/en/spec-driven-dev-guide.md): Detailed manual on the 5-phase task cycle (SPEC, PLAN, CODE, TEST, END).
 - [**Methodology & References**](assets/REFERENCES.md): Origins and theoretical DNA behind the SPEC pattern.
 
-### 🏗️ [Prompt Tracks](docs/en/prompt-tracks/)
+### [Prompt Tracks](docs/en/prompt-tracks/)
 
 We provide three distinct tracks tailored to project maturity:
 
@@ -42,7 +42,7 @@ We provide three distinct tracks tailored to project maturity:
 3. [**02 - Legacy Modernization**](docs/en/prompt-tracks/02-legacy-modernization/): Technical guide for refactoring and migrating brownfield (existing) systems using the Strangler Fig pattern.
 
 <details>
-<summary><b>🧠 Anatomy of a Good SPEC (Example)</b></summary>
+<summary><b>Anatomy of a Good SPEC (Example)</b></summary>
 
 # SPEC-001: Subscription Cancellation System (Self-Service)
 
@@ -85,7 +85,7 @@ Currently, subscription cancellation is handled only via human chat, leading to 
 
 </details>
 
-## 🧠 How to use these tracks
+## How to use these tracks
 
 1. **Identify Maturity**: Determine if your project is a prototype, a new build, or a legacy system.
 2. **Follow the Cycle**: Each track consists of numbered Markdown files. Execute them sequentially. These files act as a state machine for your development process.

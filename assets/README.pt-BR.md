@@ -28,12 +28,12 @@ Oferecemos uma estrutura onde o código se torna o resultado natural de uma espe
 
 Este projeto organiza a documentação e as trilhas em espelhos de Inglês (`../docs/en/`) e Português Brasileiro (`../docs/pt-BR/`).
 
-### 📜 [Guias e Manuais](../docs/pt-BR/)
+### [Guias e Manuais](../docs/pt-BR/)
 
 - [**Guia de Especificações**](../docs/pt-BR/guia-especificacoes.md): Manual detalhado sobre o ciclo de tarefas de 5 fases (SPEC, PLAN, CODE, TEST, END).
 - [**Metodologia e Referências**](REFERENCES.pt-BR.md): Origens e DNA teórico por trás do padrão SPEC.
 
-### 🏗️ [Trilhas de Prompts](../docs/pt-BR/prompt-tracks/)
+### [Trilhas de Prompts](../docs/pt-BR/prompt-tracks/)
 
 Oferecemos três trilhas distintas adaptadas à maturidade do projeto:
 
@@ -42,7 +42,7 @@ Oferecemos três trilhas distintas adaptadas à maturidade do projeto:
 3. [**02 - Modernização de Legado**](../docs/pt-BR/prompt-tracks/02-modernizacao-legado/): Guia técnico para refatoração e migração de sistemas existentes (Brownfield) usando o padrão Strangler Fig.
 
 <details>
-<summary><b>🧠 Anatomia de uma boa SPEC (Exemplo)</b></summary>
+<summary><b>Anatomia de uma boa SPEC (Exemplo)</b></summary>
 
 # SPEC-001: Sistema de Cancelamento de Assinatura (Self-Service)
 
@@ -85,7 +85,7 @@ Atualmente, o cancelamento de assinaturas é feito apenas via chat humano, geran
 
 </details>
 
-## 🧠 Como usar estas trilhas
+## Como utilizar estas trilhas
 
 1. **Identifique a Maturidade**: Determine se seu projeto é um protótipo, uma nova construção ou um sistema legado.
 2. **Siga o Ciclo**: Cada trilha consiste em arquivos Markdown numerados. Execute-os sequencialmente. Estes arquivos garantem que o seu processo de desenvolvimento siga um fluxo lógico e seguro.
