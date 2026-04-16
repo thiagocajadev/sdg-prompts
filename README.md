@@ -4,7 +4,7 @@
   <img src="assets/img/sdg-agents-icon-light.svg" alt="SDG Prompts Logo" width="480">
 
   <p>
-    <img src="https://img.shields.io/github/package-json/v/thiagocajadev/sdg-prompts/main" alt="Version">
+    <img src="https://img.shields.io/github/package-json/v/thiagocajadev/sdg-prompts/main?label=version" alt="Version">
     <img src="https://img.shields.io/badge/License-ISC-blue.svg" alt="License: ISC">
     <img src="https://img.shields.io/badge/Protocol-SDG-orange.svg" alt="Protocol: SDG">
     <img src="https://img.shields.io/badge/Style-Writing%20Soul-blueviolet.svg" alt="Style: Writing Soul">
