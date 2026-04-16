@@ -13,7 +13,7 @@
   <p>
     <a href="README.md">🇺🇸 English</a> | 
     <a href="assets/README.pt-BR.md"><b>🇧🇷 Português</b></a> | 
-    <a href="CHANGELOG.md"><b>📜 Changelog</b></a> | 
+    <a href="assets/CHANGELOG.md"><b>📜 Changelog</b></a> | 
     <a href="https://specdrivenguide.org"><b>🌐 specdrivenguide.org</b></a>
   </p>
 </div>
@@ -93,7 +93,7 @@ Currently, subscription cancellation is handled only via human chat, leading to 
 
 ## License
 
-This project is licensed under the [ISC License](LICENSE).
+This project is licensed under the [ISC License](LICENSE). [**Changelog**](assets/CHANGELOG.md)
 
 ---
 

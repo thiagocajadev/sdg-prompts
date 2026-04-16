@@ -13,7 +13,7 @@
   <p>
     <a href="../README.md"><b>🇺🇸 English Version</b></a> | 
     <a href="README.pt-BR.md">🇧🇷 Versão em Português</a> | 
-    <a href="../CHANGELOG.md"><b>📜 Changelog</b></a> | 
+    <a href="CHANGELOG.md"><b>📜 Changelog</b></a> | 
     <a href="https://specdrivenguide.org"><b>🌐 specdrivenguide.org</b></a>
   </p>
 </div>
@@ -93,7 +93,7 @@ Atualmente, o cancelamento de assinaturas é feito apenas via chat humano, geran
 
 ## Licença
 
-Este projeto está licenciado sob a [Licença ISC](LICENSE).
+Este projeto está licenciado sob a [Licença ISC](LICENSE). [**Changelog**](CHANGELOG.md)
 
 ---
 
