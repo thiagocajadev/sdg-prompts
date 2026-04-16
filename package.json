@@ -1,0 +1,27 @@
+{
+  "name": "sdg-prompts",
+  "version": "1.0.0",
+  "description": "![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg) ![Protocol: SDG](https://img.shields.io/badge/Protocol-SDG-orange.svg) ![Style: Writing Soul](https://img.shields.io/badge/Style-Writing%20Soul-blueviolet.svg)",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiagocajadev/sdg-prompts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/thiagocajadev/sdg-prompts/issues"
+  },
+  "homepage": "https://github.com/thiagocajadev/sdg-prompts#readme",
+  "devDependencies": {
+    "bumpp": "^11.0.1"
+  }
+}
