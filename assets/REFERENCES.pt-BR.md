@@ -40,8 +40,8 @@ A estrutura SPEC não é apenas um template; é um framework de pensamento crít
 
 ## 🔗 Referências e Leituras Recomendadas
 
-*   [**Intercom**: How we share product specs](https://www.intercom.com/blog/how-we-build-software/)
-*   [**Linear Method**: Writing Product Specs](https://linear.app/method/specs)
-*   [**Stripe**: How we write at Stripe](https://stripe.com/blog/how-we-write-at-stripe)
-*   [**JTBD**: Jobs to be Done Framework](https://jobs-to-be-done.com/)
-*   [**Josh Seiden**: Outcome over Output](https://joshuaseiden.com/books/outcome-over-output/)
+*   [**Intercom**: Foundations to build on (Princípios de Produto)](https://www.intercom.com/blog/foundations-to-build-on-intercoms-principles-for-building-product/)
+*   [**Linear Method**: Project Documents and Specs](https://linear.app/method)
+*   [**Stripe**: Operating Principles (Cultura de Escrita)](https://stripe.com/about/operating-principles)
+*   [**JTBD**: Know Your Customers' Jobs to be Done (HBR)](https://hbr.org/2016/09/know-your-customers-jobs-to-be-done)
+*   [**Josh Seiden**: Outcome over Output](https://itrevolution.com/book/outcome-over-output/)
