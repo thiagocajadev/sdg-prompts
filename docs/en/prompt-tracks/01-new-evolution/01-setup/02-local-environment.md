@@ -34,17 +34,30 @@ Run docker-compose up.
 ### ✅ Good Example
 
 ```markdown
-# 02 - Local Environment
+# SPEC-013: Local Developer Experience (DX)
 
-## Prerequisites
+## 1. Context
+Standardizing the local environment to eliminate "works on my machine" syndrome.
 
-Docker 24+, Python 3.11, Make 4.3+.
+## 2. Success Metrics
+* Developer setup time reduced to under 10 minutes.
+* 100% consistency for shared Docker images.
 
-## How to Run
+## 3. Scope & Scenarios
+* **Action:** Copy `.env.example`, run `make setup`, verify at `localhost:8080`.
+* **Prerequisites:** Docker 24+, Python 3.11, Make 4.3+.
 
-1. Copy .env.example to .env.
-2. Run `make setup` to download images and run migrations.
-3. Test access at `localhost:8080/health`.
+## 4. Constraints & Business Rules
+* All environment variables must have defaults in `.env.example`.
+* Use `make` targets instead of long script commands.
+
+## 5. Out of Scope
+* Setting up external Cloud provider credentials.
+* CI/CD runners setup.
+
+## 6. Definition of Done
+- [ ] `Makefile` setup target verified.
+- [ ] Health check endpoint access confirmed.
 ```
 
 > **Rationale**: Provides minimum versions, clear initial configuration steps (.env), and a final verification test.

@@ -29,16 +29,30 @@ O código está muito bagunçado e é difícil de ler. Precisamos refatorar os c
 ### ✅ Exemplo Bom
 
 ```markdown
-# 01 - Inventário de Débito Técnico: App de Pagamentos
+# SPEC-013: Liquidação de Débito Técnico (Pagamentos)
 
-## Gargalos Tecnológicos
+## 1. Contexto
+Mapear e planejar a correção de fragilidades críticas no módulo de pagamentos que geram risco financeiro e operacional.
 
-- **Node.js v12**: Versão sem suporte de segurança. Bloqueia o uso de bibliotecas modernas de criptografia.
-- **ORM Legado**: Gera queries N+1 no módulo de extrato, consumindo 80% dos recursos do banco em horários de pico.
+## 2. Resultados Esperados (Success Metrics)
+* Redução de 30% na taxa de erros em estornos de pagamentos.
+* Economia de 80% nos recursos do banco de dados em horários de pico.
 
-## Localização da Complexidade
+## 3. Escopo e Cenários (User Stories)
+* **Risco A:** Node.js v12 sem suporte de segurança.
+* **Risco B:** `PaymentService.js` com 5.400 linhas de código altamente acoplado.
 
-- **`PaymentService.js`**: 5.400 linhas de código com 42 responsabilidades diferentes. Qualquer alteração aqui tem 30% de chance de quebrar o fluxo de estorno.
+## 4. Restrições e Regras de Negócio
+* A modernização não deve interromper o fluxo de pagamentos atual.
+* Priorização absoluta para falhas de segurança críticas (versão do Node).
+
+## 5. Fora de Escopo
+* Refatoração visual do dashboard administrativo.
+* Melhoria de performance em módulos não críticos (ex: Relatórios).
+
+## 6. Definição de Pronto (DoD)
+- [ ] Upgrade do ambiente para Node.js LTS concluído.
+- [ ] Plano de decomposição do `PaymentService` aprovado.
 ```
 
 > **Razão**: Quantifica o risco (versão sem suporte, consumo de 80% de recursos) e identifica o arquivo exato que trava a produtividade do time.

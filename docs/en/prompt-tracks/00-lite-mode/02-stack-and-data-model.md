@@ -37,20 +37,32 @@ The database has a `leads` table.
 ### ✅ Good Example
 
 ```markdown
-# Stack and Environment: Happy Smile LP
+# SPEC-006: Lite Stack & DX Setup
 
-## Local Setup
+## 1. Context
+Standardizing the local environment and technical stack for the Happy Smile Clinic project to ensure fast onboarding.
 
-1. `git clone` followed by `npm ci` (we are using `v18.x` in nvm).
-2. Request access to DevSupabase in the slack group.
-3. Copy the `.env.example` file to `.env.local` and run `npm run dev` on port 3000.
-   **Frontend:** Next.js (Pages Router) + TailwindCSS. Form built with `React Hook Form`.
+## 2. Success Metrics
+* Onboarding time for new developers under 15 minutes.
+* 100% environment parity between local and production (Vercel).
 
-## Supabase Minimal Entities
+## 3. Scope & Scenarios
+* **Scenario A:** New developer clones repo, sets up `.env`, and runs the project.
+* **Stack:** Next.js (Pages Router) + TailwindCSS + Supabase.
 
-To strictly focus on contacts, we have only 1 table managed in the Development Supabase Cloud:
+## 4. Constraints & Business Rules
+* Use Node.js `v18.x`.
+* Forms must be implemented using `React Hook Form`.
+* Database table: `leads (id, name, email, whatsapp, created_at)`.
 
-- `leads (id: UUID, name: string, email: string, whatsapp: string, created_at: timestamp)`
+## 5. Out of Scope
+* Setting up CI/CD pipelines (handled by Vercel auto-deploy).
+* Provisioning production database instances (manual setup only).
+
+## 6. Definition of Done
+- [ ] `.env.example` file updated.
+- [ ] `leads` table schema documented.
+- [ ] `npm run dev` verified on port 3000.
 ```
 
 > **Rationale**: Straight to the point and practical. A second Frontend dev will enter the project, clone it, understand the forms, and run it in less than 10 minutes of reading.

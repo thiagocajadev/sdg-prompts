@@ -29,16 +29,32 @@ Disparamos o formulário para o mailchimp da empresa. O Front-end faz um fetch c
 ### ✅ Exemplo Bom
 
 ```markdown
-# Integrações de API da Sorriso Feliz
+# SPEC-008: Integrações da Sorriso Feliz
 
-## E-mails Transacionais (Formulário para a Clínica)
+## 1. Contexto
+Conectar a Landing Page com serviços de e-mail e pagamento para viabilizar a operação digital de forma segura.
 
-- **Provedor:** Utilizaremos a [API do Resend](https://resend.com) no domínio do cliente `contato@sorrisofeliz.com`.
-- **Rotas Seguras:** Criamos um endpoint Serverless (Edge API na Vercel) na rota `POST /api/leads`. O formulário do cliente React chama este endpoint sem nenhum token. O processamento no Node.js (lado do servidor) consumirá o token protegido via variável de ambiente da Vercel e o injetará no Resend: `RESEND_API_KEY`.
+## 2. Resultados Esperados (Success Metrics)
+* 100% de e-mails entregues na caixa de entrada da recepção via Resend.
+* Validação de webhooks com 100% de integridade e assinatura verificada.
 
-## Checkout (Planejado)
+## 3. Escopo e Cenários (User Stories)
+* **E-mail:** Integração com Resend via Edge API Routes (Segurança).
+* **Pagamento:** Stripe Hosted Checkout para serviços premium e consultas.
 
-- **Gateway:** Quando os clientes pagarem por consultas diretas (Stripe Hosted Checkout), as variáveis públicas serão inseridas em `NEXT_PUBLIC_PUBLISHABLE_KEY`, mas os webhooks retornarão com assinatura criptográfica `STRIPE_WEBHOOK_SECRET` validada em `/api/stripe-webhook`.
+## 4. Restrições e Regras de Negócio
+* Nunca expor a `RESEND_API_KEY` no lado do cliente (Frontend).
+* Utilizar `NEXT_PUBLIC_PUBLISHABLE_KEY` para o frontend e segredos no backend.
+* Validar assinatura de webhooks (`STRIPE_WEBHOOK_SECRET`) obrigatoriamente.
+
+## 5. Fora de Escopo
+* Integração com Mailchimp ou outros CRMs nesta fase inicial.
+* Pagamentos recorrentes (Assinaturas complexas).
+
+## 6. Definição de Pronto (DoD)
+- [ ] Rota `POST /api/leads` funcional e validada em produção.
+- [ ] Validação de segredos em produção via painel Vercel.
+- [ ] Teste de ponta a ponta de envio de e-mail bem-sucedido.
 ```
 
 > **Razão**: Mapeia exatamente quais frentes de terceiros são utilizadas, como as chaves serão chamadas e protege o projeto contra falhas críticas de segurança que poderiam arruinar o MVP.

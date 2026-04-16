@@ -37,20 +37,31 @@ O banco de dados tem uma tabela de `leads`.
 ### ✅ Exemplo Bom
 
 ```markdown
-# Stack e Ambiente: LP Sorriso Feliz
+# SPEC-007: Stack e Ambiente da LP Sorriso Feliz
 
-## Configuração Local
+## 1. Contexto
+Definição da infraestrutura mínima para entrega rápida e segura da Landing Page da Clínica.
 
-1. `git clone` seguido de `npm ci` (estamos utilizando a versão `v18.x` no nvm).
-2. Solicite acesso ao DevSupabase no grupo do slack.
-3. Copie o arquivo `.env.example` para `.env.local` e rode `npm run dev` na porta 3000.
-   **Frontend:** Next.js (Pages Router) + TailwindCSS. Formulário construído com `React Hook Form`.
+## 2. Resultados Esperados (Success Metrics)
+* Tempo de carregamento da página (LCP) < 1.5s.
+* Setup inicial do desenvolvedor em menos de 10 minutos.
 
-## Entidades Mínimas do Supabase
+## 3. Escopo e Cenários (User Stories)
+* **Ambiente:** Node.js v18.x + Next.js (Pages Router) + TailwindCSS.
+* **Dados:** Tabela `leads` no Supabase (id, name, email, whatsapp).
 
-Para focar estritamente em contatos, temos apenas 1 tabela gerenciada no Supabase Cloud de Desenvolvimento:
+## 4. Restrições e Regras de Negócio
+* Uso obrigatório de `React Hook Form` para validação de formulários.
+* Acesso ao banco restrito via políticas de RLS no Supabase.
 
-- `leads (id: UUID, name: string, email: string, whatsapp: string, created_at: timestamp)`
+## 5. Fora de Escopo
+* Configuração de ambiente de CI/CD complexo (foco em vercel manual).
+* Cache de borda via Redis (foco em custo zero).
+
+## 6. Definição de Pronto (DoD)
+- [ ] Arquivo `.env.example` funcional.
+- [ ] Tabela de leads criada e acessível.
+- [ ] Comando `npm run dev` executando sem erros.
 ```
 
 > **Razão**: Direto ao ponto e prático. Um segundo desenvolvedor Frontend entrará no projeto, clonará, entenderá os formulários e o executará em menos de 10 minutos de leitura.

@@ -35,20 +35,31 @@ Queremos que o usuário entre no sistema.
 ### ✅ Exemplo Bom
 
 ```markdown
-# 01 - Contexto e Escopo: Integração com Stripe
+# SPEC-001: Integração com Stripe (Pagamentos)
 
-## User Story
+## 1. Contexto
+Permitir que clientes logados alterem seu cartão de crédito para garantir que cobranças futuras ocorram sem interrupções no serviço.
 
-Como cliente assinado, desejo alterar meu cartão de crédito para que minhas cobranças futuras ocorram em um novo método de pagamento.
+## 2. Resultados Esperados (Success Metrics)
+* Redução de 5% no churn causado por falhas de pagamento.
+* Taxa de sucesso de 99% nas validações de novos cartões.
 
-## Critérios de Aceitação
+## 3. Escopo e Cenários (User Stories)
+* **Cenário A:** Usuário atualiza cartão com sucesso.
+* **User Story:** Como cliente assinado, desejo alterar meu cartão de crédito para que minhas cobranças ocorram em um novo método de pagamento.
 
-- [x] O usuário deve visualizar apenas os 4 últimos dígitos do cartão atual.
-- [x] A validação do novo cartão deve ocorrer em tempo real via API do Stripe.
+## 4. Restrições e Regras de Negócio
+* Validação do cartão em tempo real via API do Stripe.
+* Mostrar apenas os últimos 4 dígitos do cartão atual por segurança.
 
-## Fora do Escopo
+## 5. Fora de Escopo
+* Remoção do único cartão ativo sem inserção de um substituto.
+* Suporte a Boleto ou Pix nesta fase.
 
-Não permitiremos a remoção do único cartão ativo sem a inserção de um substituto.
+## 6. Definição de Pronto (DoD)
+- [ ] Interface de atualização de cartão funcional.
+- [ ] Webhook de confirmação do Stripe integrado.
+- [ ] Testes de validação de cartão passando.
 ```
 
 > **Razão**: Define o comportamento esperado e as restrições, protegendo a regra de negócio de cobrança.

@@ -43,21 +43,31 @@ Record to the server console.
 ### ✅ Good Example
 
 ```markdown
-# 03 - Security and Access
+# SPEC-017: Security Hardening Protocol
 
-## Authentication and Authorization
+## 1. Context
+Establishing security benchmarks for authentication, authorization, and data protection.
 
-- **Authn**: JWT with RSA-256 and 15min expiration time.
-- **Authz**: Platform-native RBAC (Role-Based Access Control).
+## 2. Success Metrics
+* Zero plain-text credentials in the entire repository.
+* 100% compliance with corporate log retention policies (2 years).
 
-## Data Protection
+## 3. Scope & Scenarios
+* **Auth:** JWT RSA-256 + RBAC.
+* **Rest:** AES-256 for Tax ID (CPF) fields.
 
-- **Rest**: AES-256 for the Tax ID (CPF) field in the database.
-- **Secrets**: Injected via AWS Secrets Manager at runtime.
+## 4. Constraints & Business Rules
+* 15-minute expiration for all access tokens.
+* All secrets MUST be injected via AWS Secrets Manager at runtime.
 
-## Audit
+## 5. Out of Scope
+* Implementing biometric authentication in this phase.
+* Conducting external penetration testing (audit only).
 
-Mutation logs sent to CloudWatch Logs with 2-year retention for compliance.
+## 6. Definition of Done
+- [ ] JWT signer logic verified.
+- [ ] AES-256 encryption helper tested.
+- [ ] Audit log retention policy configured.
 ```
 
 > **Rationale**: Defines algorithms (RSA-256, AES-256), specific tools, and compliance policies (2-year log retention).

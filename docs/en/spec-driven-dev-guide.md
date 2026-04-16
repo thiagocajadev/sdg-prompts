@@ -5,7 +5,7 @@ The **Spec-Driven Guide (SDG)** enforces a standardized lifecycle for every task
 The cycle follows five mandatory phases: **SPEC → PLAN → CODE → TEST → END**.
 
 > [!TIP]
-> **Deep Dive**: Want to see what happens "Under the Hood"? Read the [**Agent Deep-Flow Guide**](agent-deep-flow.md) for a visual breakdown of internal sub-steps and decision gates.
+> **Theoretical DNA**: Want to understand the origins of the SPEC pattern? Read our [**Methodology & References**](../assets/REFERENCES.md) for a breakdown of the core pillars and architectural source material.
 
 ---
 
@@ -13,15 +13,41 @@ The cycle follows five mandatory phases: **SPEC → PLAN → CODE → TEST → E
 
 **Goal:** Define the implementation contract and verification criteria.
 
-- **Process**: The agent analyzes the request (e.g., via `/sdg-feat` or `/sdg-fix`) and produces a formal specification.
-- **Standards**:
-  - Identify the domain (Backend, Frontend, Fullstack).
-  - **Feature Cycle**: Focus on domain modeling and business logic.
-  - **Fix Cycle**: Execute **Root Cause Analysis (RCA)** to identify the specific layer or contract violation.
-  - Define inputs, outputs, and hardware/software constraints.
-  - Create a **Verification Checklist** (binary pass/fail items).
+- **Process**: The agent analyzes the request (e.g., via `feat:` or `fix:`) and produces a formal specification.
+- **Mandatory Structure (6 Steps)**:
+  1. **Context**: Why this is being built and for whom.
+  2. **Success Metrics**: Quantifiable results or expected business impact.
+  3. **Scope & Scenarios**: User stories and explicit behavior scenarios.
+  4. **Constraints & Business Rules**: Eligibility, deadlines, and technical limits.
+  5. **Out of Scope**: Explicitly what will NOT be handled to prevent scope creep.
+  6. **Definition of Done (DoD)**: Final verification checklist for the task.
 - **Mandate**: The agent must halt for explicit Developer approval of the Spec before moving to the Plan.
-- **Reasoning Exception**: Modern reasoning models may proceed after emitting an internal `<thought>` block validating the criteria.
+
+### Gold Standard Example:
+```markdown
+# SPEC-001: Subscription Cancellation System (Self-Service)
+
+## 1. Context
+Currently, cancellation is handled via chat, leading to high support load. This spec automates the flow via the user panel.
+
+## 2. Success Metrics
+* 40% reduction in support tickets.
+* 10% retention via downgrade offers.
+
+## 3. Scope & Scenarios
+* **Scenario A:** User cancels and loses access at cycle end.
+* **Scenario B:** User accepts a discount to stay.
+
+## 4. Constraints
+* Only "Premium/Standard" plans. "Enterprise" follows manual flow.
+
+## 5. Out of Scope
+* Automatic refunds (processed manually).
+
+## 6. Definition of Done
+- [ ] Stripe API integration.
+- [ ] Confirmation email sent.
+```
 
 ---
 

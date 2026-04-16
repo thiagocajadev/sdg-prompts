@@ -29,11 +29,32 @@
 ### ✅ Good Example
 
 ```markdown
-# Rules
+# SPEC-002: Advanced Coupon System
 
-- **Happy Path:** The shopkeeper creates a Coupon and defines its validity. The system allows its use on listed products.
-- **Constraints:** The coupon discount value can never be greater than the price of the lowest-priced item in the cart (To avoid negative order balances).
-- **Concurrency (Race Condition):** A coupon with `use_limit = 1` must use Optimistic Locking; if two users attempt checkout in the same millisecond, one will receive a "Coupon Exhausted" error.
+## 1. Context
+We need to implement a flexible discount system to improve marketing campaign efficiency and sales conversion.
+
+## 2. Success Metrics
+* 15% increase in conversion during promotional periods.
+* Zero negative balance orders due to improper discounting.
+
+## 3. Scope & Scenarios (User Stories)
+* **Scenario A:** Shopkeeper creates a coupon with validity dates and product restrictions.
+* **Scenario B:** System validates a coupon in real-time before applying discount.
+* **Scenario C (Concurrency):** Multiple users try to use a single-use coupon at the same time.
+
+## 4. Constraints & Business Rules
+* **Max Discount:** Coupon value cannot exceed the price of the cheapest item in the cart.
+* **Concurrency:** Coupons with usage limits must use Optimistic Locking.
+
+## 5. Out of Scope
+* Automatic coupon recommendations for users.
+* Tiered discounts based on user loyalty rank.
+
+## 6. Definition of Done
+- [ ] Schema for Coupon entity.
+- [ ] Real-time validation logic.
+- [ ] Locking mechanism for usage limits.
 ```
 
 > **Rationale**: The developer will read this and IMMEDIATELY remember to shield the entity against "negative values" and apply a database lock when debiting the coupon.

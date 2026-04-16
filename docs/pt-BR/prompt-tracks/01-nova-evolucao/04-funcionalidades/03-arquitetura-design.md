@@ -32,21 +32,31 @@ O endpoint vai ser `/desconto`.
 ### ✅ Exemplo Bom
 
 ```markdown
-# 03 - Arquitetura e Design: Módulo de Cupons
+# SPEC-003: Arquitetura do Módulo de Cupons
 
-## API Contract (Novo Endpoint)
+## 1. Contexto
+Estrutura técnica para suportar o motor de cupons (SPEC-002), garantindo performance e integridade dos dados.
 
-- **POST `/api/v1/coupons/apply`**
-- **Input**: `{ "code": "SUMMER20", "order_id": "UUID" }`
-- **Output (200 OK)**: `{ "applied": true, "new_total": 80.00, "discount_value": 20.00 }`
+## 2. Resultados Esperados (Success Metrics)
+* Tempo de resposta da API de cupons < 200ms.
+* Integridade referencial entre pedidos e cupons aplicados.
 
-## Modelo de Dados (Schema)
+## 3. Escopo e Cenários (User Stories)
+* **API:** POST `/api/v1/coupons/apply`.
+* **Input:** `{ "code": "SUMMER20", "order_id": "UUID" }`.
 
-- **Nova Tabela `coupons`**:
-  - `id`: UUID (Primary Key)
-  - `code`: VARCHAR(20) (Unique Index)
-  - `discount_percentage`: DECIMAL(5,2)
-  - `status`: ENUM('active', 'expired')
+## 4. Restrições e Regras de Negócio
+* Tabela `coupons` com campos `id`, `code`, `discount_percentage`, `status`.
+* Índice único no campo `code` para evitar duplicidade.
+
+## 5. Fora de Escopo
+* Dashboards administrativos para gestão de cupons.
+* Migração de dados de cupons de sistemas legados.
+
+## 6. Definição de Pronto (DoD)
+- [ ] Schema do banco de dados aplicado via migration.
+- [ ] Contrato da API validado com Swagger/Postman.
+- [ ] Repositório de dados implementado e testado.
 ```
 
 > **Razão**: Fornece especificações exatas de entrada e saída da API e a estrutura técnica do banco de dados, eliminando ambiguidades durante o desenvolvimento.

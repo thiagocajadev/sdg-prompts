@@ -32,15 +32,31 @@ Make the export work.
 ### ✅ Good Example
 
 ```markdown
-# Context
+# SPEC-001: Financial Report Exporting
 
-**Problem:** Currently, our shopkeepers spend 4 hours a month taking screenshots of sales screens to send to accounting.
-**Metrics:** Reduce time spent by shopkeepers (CSAT) and decrease CS tickets asking for reports.
+## 1. Context
+Currently, shopkeepers spend 4 hours a month taking screenshots for accounting. We need a manual export tool to solve this pain point.
 
-# Scope
+## 2. Success Metrics
+* Reduce time spent by shopkeepers (CSAT).
+* Decrease CS tickets asking for reports.
 
-**In-Scope:** UI-based export of CSV and PDF reports from the "Financial" tab.
-**Out-of-Scope:** Automatic scheduling (Cron) of report delivery. We will only perform manual exports for now.
+## 3. Scope & Scenarios (User Stories)
+* **Scenario A:** User exports CSV/PDF from "Financial" tab.
+* **User Story:** As a shopkeeper, I want to export reports so I can send them to my accountant easily.
+
+## 4. Constraints & Business Rules
+* Export only available for "Financial" tab data.
+* Manual triggers only (no scheduling yet).
+
+## 5. Out of Scope
+* Automatic scheduling (Cron) of report delivery.
+* Legacy sales data from over 2 years ago.
+
+## 6. Definition of Done
+- [ ] CSV/PDF generation logic.
+- [ ] UI export button.
+- [ ] Unit tests for report data extraction.
 ```
 
 > **Rationale**: Defines the root problem and blocks inappropriate future proposals for the moment (such as automatic scheduling) that would delay delivery.

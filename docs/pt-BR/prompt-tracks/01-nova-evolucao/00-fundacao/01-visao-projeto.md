@@ -43,20 +43,30 @@ Fazer o app funcionar e ser rápido.
 ### ✅ Exemplo Bom
 
 ```markdown
-# 01 - Visão do Projeto
+# SPEC-009: App de Entrega Local
 
-## Qual Problema Estamos Resolvendo?
-
+## 1. Contexto
 Restaurantes locais perdem 30% da margem em taxas para grandes aplicativos de entrega e não possuem controle sobre os dados dos seus clientes.
 
-## Objetivos de Negócio
+## 2. Resultados Esperados (Success Metrics)
+* Lançar um MVP que reduza a taxa por entrega para no máximo 5%.
+* Aumentar em 20% a retenção de clientes via cupons diretos.
 
-- [ ] Lançar um MVP (Produto Mínimo Viável) que reduza a taxa por entrega para no máximo 5%.
-- [ ] Permitir que o dono do restaurante gerencie cupons de fidelidade diretamente.
+## 3. Escopo e Cenários (User Stories)
+* **User Story (B2B):** Como dono de restaurante, quero gerenciar meus dados para não depender de terceiros.
+* **User Story (B2C):** Como cliente, quero cupons de fidelidade para economizar em pedidos recorrentes.
 
-## Público-Alvo
+## 4. Restrições e Regras de Negócio
+* O lojista deve gerenciar cupons sem intervenção técnica externa.
+* O sistema deve garantir a propriedade e o controle dos dados pelo restaurante.
 
-Dinos de pequenos restaurantes (B2B) e seus clientes recorrentes (B2C).
+## 5. Fora de Escopo
+* Integração com frotas de entrega terceirizadas nesta fase.
+* Desenvolvimento de aplicativos nativos iOS/Android.
+
+## 6. Definição de Pronto (DoD)
+- [ ] MVP com fluxo de pedido e fidelidade concluído.
+- [ ] Base de dados estruturada para controle do lojista.
 ```
 
 > **Razão**: Define claramente o problema financeiro (margem de lucro) e objetivos tangíveis que justificam o investimento no projeto.

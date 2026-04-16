@@ -28,17 +28,31 @@ Vamos começar pelo banco de dados e depois vamos subindo para as APIs. Previsã
 ### ✅ Exemplo Bom
 
 ```markdown
-# 01 - Roadmap de Migração: E-Commerce V2
+# SPEC-014: Roadmap Estratégico E-Commerce V2
 
-## Fases por Domínio
+## 1. Contexto
+Modernização faseada do E-commerce legada para garantir continuidade de negócio e evolução técnica por domínios.
 
-1. **Autenticação (Dezembro)**: Primeiro módulo, permite que o usuário logue na infra nova enquanto navega no site velho.
-2. **Carrinho (Janeiro)**: Migração do estado das compras. Exige sincronização em tempo real entre o Redis novo e o banco SQL legado.
-3. **Checkout (Fevereiro)**: O momento da verdade. O pagamento passa a ser processado 100% pelo código novo.
+## 2. Resultados Esperados (Success Metrics)
+* Zero incidentes durante a migração de domínios críticos.
+* Manutenção de 100% da integridade de dados entre novo e velho sistema.
 
-## Anti-Corruption Layer (ACL)
+## 3. Escopo e Cenários (User Stories)
+* **Fase 1 (Dezembro):** Autenticação (Login na infra nova).
+* **Fase 2 (Janeiro):** Carrinho (Sincronização Redis/SQL).
+* **Fase 3 (Fevereiro):** Checkout (Processamento 100% novo).
 
-Criaremos um serviço intermediário que traduz os IDs hexadecimais do novo banco para os IDs incrementais do legado, garantindo que o módulo de "Envio/Logística" (que ainda estará no legado) não quebre.
+## 4. Restrições e Regras de Negócio
+* Uso obrigatório de Anti-Corruption Layer (ACL) para tradução de IDs.
+* O módulo de Logística deve permanecer operacional no legado até a Fase 4.
+
+## 5. Fora de Escopo
+* Migração total do banco de dados em uma única etapa (Big Bang).
+* Refatoração de funcionalidades que serão descontinuadas.
+
+## 6. Definição de Pronto (DoD)
+- [ ] Serviço ACL validado em produção.
+- [ ] Autenticação migrada com sucesso.
 ```
 
 > **Razão**: Abordagem orientada a valor (domínios). Permite que partes do sistema sejam modernizadas e validadas em produção enquanto o restante continua operando normalmente.

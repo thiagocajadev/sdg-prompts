@@ -34,17 +34,32 @@ Save the PDF in the Docs table.
 ### ✅ Good Example
 
 ```markdown
-# Contracts (API-First)
+# SPEC-003: Workspace Report API
 
-- **POST** `/api/v1/workspaces/{id}/reports`
-- **Expected HTTP Statuses:** `201 Created` (Success), `422 Unprocessable` (Validation), `404 Not Found` (Non-existent Workspace).
-- **Response Envelope:** The `422` error must follow [RFC 7807](https://datatracker.ietf.org/doc/html/rfc7807) (Problem Details).
+## 1. Context
+Backend foundation for the Financial Report Exporting feature. Provides endpoints for generating and fetching reports.
 
-# Data Modeling
+## 2. Success Metrics
+* 99.9% API uptime for the report creation flow.
+* Report generation latency under 2 seconds for 90% of requests.
 
-- **Relational Table:** `reports (id, type, target_month, status, file_url)`.
-- **Constraint:** `UNIQUE (workspace_id, target_month)` to avoid duplicate report generation.
-- **Storage:** The physical file (.pdf) will be streamed directly to an S3 Bucket (Never store Blobs in a relational database).
+## 3. Scope & Scenarios (User Stories)
+* **Scenario A:** Agent triggers POST request to generate report.
+* **User Story:** As a developer, I want a standard error format ([RFC 7807](https://datatracker.ietf.org/doc/html/rfc7807)) for easy troubleshooting.
+
+## 4. Constraints & Business Rules
+* **Schema:** `reports (id, type, target_month, status, file_url)`.
+* **Constraint:** `UNIQUE (workspace_id, target_month)` to prevent duplicates.
+* **Storage:** Physical files stored in S3 Bucket.
+
+## 5. Out of Scope
+* Report deletion or archival API.
+* Direct SQL injection/modification of report status.
+
+## 6. Definition of Done
+- [ ] POST endpoint implemented with RFC 7807 validation.
+- [ ] S3 streaming logic.
+- [ ] Table unique constraints applied.
 ```
 
 > **Rationale**: Puts an end to endless PR discussions. The Front-End Dev knows exactly what payload to expect (even if the backend hasn't coded anything yet). The DBA understands the indexes that will be generated.

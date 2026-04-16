@@ -33,16 +33,30 @@ The system must be very fast and easy to use.
 ### ✅ Good Example
 
 ```markdown
-# 03 - Success Metrics
+# SPEC-011: Checkout Performance Baseline
 
-## KPIs
+## 1. Context
+Establishing measurable goals for the checkout completion and API performance.
 
-Increase the checkout completion rate from 65% to 90% in the first 3 months after launch.
+## 2. Success Metrics
+* Increase checkout completion rate from 65% to 90%.
+* API Response < 500ms P95.
 
-## Success Checklist
+## 3. Scope & Scenarios
+* **Baseline:** Current completion is 65%.
+* **Target:** 90% within 3 months post-launch.
 
-- [x] Response < 500ms P95 across all APIs.
-- [x] 100% of business flows covered by integration tests.
+## 4. Constraints & Business Rules
+* 100% of business flows must be covered by integration tests.
+* Metrics must be measured during peak load times.
+
+## 5. Out of Scope
+* Improving UI load times (focus on API/Backend only).
+* Third-party gateway latency metrics.
+
+## 6. Definition of Done
+- [ ] K6 performance tests passing.
+- [ ] Integration test suite verified.
 ```
 
 > **Rationale**: Provides a target number (90%), a baseline value (65%), a timeframe (3 months), and clear technical criteria.

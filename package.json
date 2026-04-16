@@ -1,6 +1,6 @@
 {
   "name": "sdg-prompts",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg) ![Protocol: SDG](https://img.shields.io/badge/Protocol-SDG-orange.svg) ![Style: Writing Soul](https://img.shields.io/badge/Style-Writing%20Soul-blueviolet.svg)",
   "main": "index.js",
   "directories": {

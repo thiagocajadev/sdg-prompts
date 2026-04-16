@@ -12,7 +12,7 @@
 
   <p>
     <a href="README.md">🇺🇸 English</a> | 
-    <a href="README.pt-BR.md"><b>🇧🇷 Português</b></a> | 
+    <a href="assets/README.pt-BR.md"><b>🇧🇷 Português</b></a> | 
     <a href="CHANGELOG.md"><b>📜 Changelog</b></a> | 
     <a href="https://specdrivenguide.org"><b>🌐 specdrivenguide.org</b></a>
   </p>
@@ -31,7 +31,7 @@ This project organizes documentation and tracks into English (`docs/en/`) and Br
 ### 📜 [Guides and Manuals](docs/en/)
 
 - [**Spec-Driven Governance Guide**](docs/en/spec-driven-dev-guide.md): Detailed manual on the 5-phase task cycle (SPEC, PLAN, CODE, TEST, END).
-- [**UI Specification Guide**](docs/en/ui-prompt-guide.md): Protocol for creating high-fidelity user interfaces utilizing modern CSS and accessibility standards.
+- [**Methodology & References**](assets/REFERENCES.md): Origins and theoretical DNA behind the SPEC pattern.
 
 ### 🏗️ [Prompt Tracks](docs/en/prompt-tracks/)
 
@@ -41,10 +41,49 @@ We provide three distinct tracks tailored to project maturity:
 2. [**01 - New Evolution**](docs/en/prompt-tracks/01-new-evolution/): Standard path for building scalable greenfield applications from scratch.
 3. [**02 - Legacy Modernization**](docs/en/prompt-tracks/02-legacy-modernization/): Technical guide for refactoring and migrating brownfield (existing) systems using the Strangler Fig pattern.
 
-### 🎨 [Creative Assets](docs/en/creatives/)
+<details>
+<summary><b>🧠 Anatomy of a Good SPEC (Example)</b></summary>
 
-- [**Brand DNA**](docs/en/creatives/brand-dna.md): Artifacts to define brand identity and extraction.
-- [**Social Media Strategy**](docs/en/creatives/social/): Templates for Instagram, LinkedIn, TikTok, and YouTube content generation.
+# SPEC-001: Subscription Cancellation System (Self-Service)
+
+## 1. Context
+
+Currently, subscription cancellation is handled only via human chat, leading to high support load and customer frustration. This spec defines the automation of the cancellation flow directly through the user panel.
+
+## 2. Success Metrics
+
+- 40% reduction in cancellation-related support tickets.
+- 10% user retention through "downgrade" offers during the flow.
+- Immediate update of subscription status in the database and payment gateway.
+
+## 3. Scope & Scenarios (User Stories)
+
+- **Scenario A:** User cancels and loses access at the end of the paid period (pro-rata).
+- **Scenario B:** User accepts a discount offer to avoid cancellation.
+- **Scenario C:** User with pending invoices is prevented from cancelling via self-service.
+
+## 4. Constraints & Business Rules
+
+- **Eligibility:** Only "Premium" or "Standard" plan users can cancel via the panel. "Enterprise" plans require contact with the Account Manager.
+- **Deadlines:** Cancellation must be requested at least 24h before the next renewal to avoid unwanted charges.
+- **Reversibility:** User can reactivate the subscription with one click until the last day of the current cycle.
+
+## 5. Out of Scope
+
+- Automatic refunds (refunds must be manual via admin).
+- Cancellation of accounts suspended for fraud.
+
+## 6. Definition of Done
+
+- [ ] Integration with the Stripe API to cancel renewal.
+- [ ] Sending termination confirmation email.
+- [ ] Cancellation reason log saved for the Product team.
+
+<br>
+
+---
+
+</details>
 
 ## 🧠 How to use these tracks
 

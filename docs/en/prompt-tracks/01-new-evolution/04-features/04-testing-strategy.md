@@ -28,21 +28,30 @@ Run in the CI.
 ### ✅ Good Example
 
 ```markdown
-# Testing Strategy
+# SPEC-004: Coupon System Testing Strategy
 
-**Unit (Unit Tests - Domain Focus)**
-Should focus on the `CouponDomain` Entity:
+## 1. Context
+Validation plan to ensure the Advanced Coupon System (SPEC-002) is resilient and accurate.
 
-- `(Happy Path)` If valid, discounts value.
-- `(Sad Path)` Throws `InsufficientBalanceException`.
-- `(Sad Path)` Throws `ExpiredCouponException` if CurrentDate > Validity.
+## 2. Success Metrics
+* 100% test coverage for domain-level discount logic.
+* Zero race condition bugs during single-use coupon redemption.
 
-**Integration (Controller/API Focus)**
+## 3. Scope & Scenarios (User Stories)
+* **Unit Tests:** `CouponDomain` entity (Validates status, balance, and expiration).
+* **Integration Tests:** `POST /checkout` flow with mock payment provider.
 
-- Mock external payment API to always return "Approved".
-- Execute POST /checkout request and ensure that:
-  - The `tbl_orders` table inserted a new ID.
-  - Final return `201 Created` and body contains `{ success: true, order_id: 12 }`.
+## 4. Constraints & Business Rules
+* Use Jest/Vitest for unit testing.
+* Mock external APIs to ensure test reliability.
+
+## 5. Out of Scope
+* Performance testing for over 100k concurrent users.
+* Manual UI testing for cross-browser CSS issues.
+
+## 6. Definition of Done
+- [ ] Unit tests for `InsufficientBalance` and `ExpiredCoupon` exceptions.
+- [ ] Integration test verifying `tbl_orders` insertion and `201 Created` response.
 ```
 
 > **Rationale**: Based on this _Strategy_, even more junior devs build efficient `.spec.ts` files without being afraid of the PR being blocked or leaving security holes or domain failures.

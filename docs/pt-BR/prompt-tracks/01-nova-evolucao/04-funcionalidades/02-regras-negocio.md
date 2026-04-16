@@ -30,18 +30,32 @@ O sistema valida o cupom e dá o desconto.
 ### ✅ Exemplo Bom
 
 ```markdown
-# 02 - Regras de Negócio: Sistema de Cupons
+# SPEC-002: Sistema de Cupons de Desconto
 
-## Lógica de Desconto
+## 1. Contexto
+Implementar um motor de cupons para campanhas de marketing, permitindo descontos percentuais controlados por validade e uso.
 
-1. Validar se o cupom existe e está com o status `ativo`.
-2. Verificar se a data atual está entre `start_date` e `end_date`.
-3. Aplicar o desconto `X%` apenas sobre o valor dos produtos (excluindo frete).
+## 2. Resultados Esperados (Success Metrics)
+* Aumento de 10% no volume de vendas em campanhas promocionais.
+* Zero pedidos com valor negativo devido a erros de cálculo.
 
-## Casos de Exceção
+## 3. Escopo e Cenários (User Stories)
+* **Cenário A:** Aplicação de cupom válido sobre o carrinho.
+* **Cenário B:** Tentativa de uso de cupom expirado ou sem estoque.
 
-- **Cupom Expirado**: Retornar erro `422 Unprocessable Entity` com a mensagem "Este cupom expirou".
-- **Tentativa de Reuso**: Se `usage_limit` do usuário for 0, bloquear aplicação.
+## 4. Restrições e Regras de Negócio
+* Desconto aplicado apenas sobre o valor dos produtos (exclui frete).
+* Validar `usage_limit` e datas `start_date` / `end_date`.
+* Retornar `422` com mensagem clara se o cupom estiver inválido.
+
+## 5. Fora de Escopo
+* Cupons cumulativos (apenas um cupom por pedido).
+* Descontos progressivos baseados no valor total.
+
+## 6. Definição de Pronto (DoD)
+- [ ] Lógica de cálculo verificada com testes unitários.
+- [ ] API de aplicação de cupom implementada.
+- [ ] Logs de auditoria para cada cupom gerado.
 ```
 
 > **Razão**: Define regras matemáticas e lógicas granulares, facilitando a implementação de testes que cubram todos os cenários sem adivinhação.

@@ -38,19 +38,30 @@ Vamos usar o padrão do framework.
 ### ✅ Exemplo Bom
 
 ```markdown
-# 01 - Estrutura de Pastas: Arquitetura Hexagonal
+# SPEC-011: Estrutura de Pastas Hexagonal
 
-## Mapa de Diretórios
+## 1. Contexto
+Organizar o repositório para garantir alta manutenibilidade e separação rigorosa entre domínio e infraestrutura.
 
-- **/domain**: Contém as Entidades ricas e as Interfaces (Ports) do sistema. Zero dependência externa.
-- **/application**: Casos de Uso (Use Cases) que orquestram o domínio.
-- **/infrastructure**:
-  - **/persistence**: Implementações do PostgreSQL (Adapters).
-  - **/http**: Controladores e rotas da API.
+## 2. Resultados Esperados (Success Metrics)
+* Zero dependências cíclicas entre pacotes.
+* Possibilidade de trocar o banco de dados sem alterar a lógica de negócio.
 
-## Racional
+## 3. Escopo e Cenários (User Stories)
+* **Estrutura:** `/domain` (Entidades), `/application` (Casos de Uso), `/infrastructure` (Drivers).
+* **Mapeamento:** `/infrastructure/persistence` (PostgreSQL), `/infrastructure/http` (REST).
 
-Esta estrutura foi escolhida para permitir a troca do banco de dados ou da interface de entrada (ex: de REST para gRPC) sem tocar na lógica de negócio central.
+## 4. Restrições e Regras de Negócio
+* A pasta `/domain` não pode importar nenhuma biblioteca externa de infraestrutura.
+* Comunicação entre camadas deve ocorrer estritamente através de interfaces (Ports).
+
+## 5. Fora de Escopo
+* Definição de estrutura para micro frontend (foco no backend).
+* Configurações de monorepo avançado.
+
+## 6. Definição de Pronto (DoD)
+- [ ] Árvore de diretórios inicial criada.
+- [ ] Boilerplate seguindo o padrão Hexagonal validado.
 ```
 
 > **Razão**: Define o propósito de cada pasta e justifica a estrutura com base na manutenibilidade (facilidade de alteração).

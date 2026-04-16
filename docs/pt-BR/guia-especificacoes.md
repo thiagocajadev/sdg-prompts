@@ -5,7 +5,7 @@ O **Guia de Especificações (SDG — Spec-Driven Guide)** estabelece um ciclo d
 O ciclo segue cinco fases obrigatórias: **SPEC → PLAN → CODE → TEST → END**.
 
 > [!TIP]
-> **Análise profunda**: Se deseja entender o funcionamento interno, leia o [**Guia de Fluxo Interno do Agente**](agent-deep-flow.md) para ver o detalhamento dos subpassos e portas de decisão.
+> **DNA Teórico**: Quer entender as origens do padrão SPEC? Leia nossa [**Metodologia e Referências**](../assets/REFERENCES.pt-BR.md) para um detalhamento dos pilares centrais e material de origem arquitetural.
 
 ---
 
@@ -13,15 +13,41 @@ O ciclo segue cinco fases obrigatórias: **SPEC → PLAN → CODE → TEST → E
 
 **Objetivo:** Definir o contrato de implementação e os critérios de verificação.
 
-- **Processo**: O agente analisa a requisição (ex: via `/sdg-feat` ou `/sdg-fix`) e produz uma especificação formal.
-- **Padrões**:
-  - Identificação do domínio (Backend, Frontend, Fullstack).
-  - **Ciclo de Funcionalidade**: Foco em modelagem de domínio e lógica de negócio.
-  - **Ciclo de Correção**: Execução de **Root Cause Analysis (RCA — análise de causa raiz)** para identificar o nível específico ou a violação de contrato.
-  - Definição de entradas, saídas e restrições de hardware ou software.
-  - Criação de um **Checklist de Verificação** (itens binários de aprovação ou falha).
+- **Processo**: O agente analisa a requisição (ex: via `feat:` ou `fix:`) e produz uma especificação formal.
+- **Estrutura Obrigatória (6 Passos)**:
+  1. **Contexto**: Por que isso está sendo construído e para quem.
+  2. **Resultados Esperados**: Métricas de sucesso ou impacto de negócio esperado.
+  3. **Escopo e Cenários**: Histórias de usuário e cenários explícitos de comportamento.
+  4. **Limites e Regras de Negócio**: Elegibilidade, prazos e restrições técnicas.
+  5. **Limitações (Fora de Escopo)**: O que explicitamente NÃO será tratado.
+  6. **Definição de Pronto (DoD)**: Checklist final de verificação da tarefa.
 - **Mandato**: O agente deve parar e aguardar a aprovação explícita da especificação pelo desenvolvedor antes de avançar para o plano.
-- **Exceção de Raciocínio**: Modelos de raciocínio modernos podem prosseguir após emitir um bloco interno de `<thought>` (bloco de pensamento para validação de critérios).
+
+### Exemplo de Padrão Ouro:
+```markdown
+# SPEC-001: Sistema de Cancelamento de Assinatura (Self-Service)
+
+## 1. Contexto
+Atualmente o cancelamento é via chat, gerando carga no suporte. Esta spec automatiza o fluxo via painel.
+
+## 2. Resultados Esperados
+* Redução de 40% nos tickets de suporte.
+* Retenção de 10% via ofertas de downgrade.
+
+## 3. Escopo e Cenários
+* **Cenário A:** Usuário cancela e perde acesso ao fim do ciclo.
+* **Cenário B:** Usuário aceita desconto para ficar.
+
+## 4. Limites e Regras
+* Apenas planos Premium/Standard. Enterprise segue fluxo manual.
+
+## 5. Limitações
+* Estornos automáticos (processados manualmente).
+
+## 6. Definição de Pronto
+- [ ] Integração API Stripe.
+- [ ] E-mail de confirmação enviado.
+```
 
 ---
 

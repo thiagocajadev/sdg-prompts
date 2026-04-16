@@ -43,20 +43,30 @@ We'll use the newest version or whatever works.
 ### ✅ Good Example
 
 ```markdown
-# 01 - Tech Stack
+# SPEC-012: Financial Engine Stack
 
-## Chosen Technologies
+## 1. Context
+Choosing the foundation for a financial system requiring high concurrency (5k RPS) and ACID consistency.
 
-Go 1.21, PostgreSQL 15, Redis 7.
+## 2. Success Metrics
+* Zero consistency errors in financial transactions.
+* Maintain 5k RPS with sub-second latency.
 
-## Choice Rationale
+## 3. Scope & Scenarios
+* **Stack:** Go 1.21 + PostgreSQL 15 + Redis 7.
+* **Rational:** Goroutines for concurrency, Postgres for ACID.
 
-Go was chosen for its concurrency performance (Goroutines) required for processing 5k RPS, and PostgreSQL for ACID consistency in critical financial transactions.
+## 4. Constraints & Business Rules
+* Use only LTS versions of Node.js (v20).
+* Weekly automated patch updates via Dependabot.
 
-## Version Management (LTS)
+## 5. Out of Scope
+* Using NoSQL databases for core financial records.
+* Manual dependency management.
 
-- **Runtimes**: Only even versions of Node.js (e.g., v20) and Go in its supported versions.
-- **Automated Updates**: Dependabot configured via `.github/dependabot.yml` for weekly automatic patch updates.
+## 6. Definition of Done
+- [ ] Go/Postgres service boilerplate complete.
+- [ ] `.github/dependabot.yml` configured.
 ```
 
 > **Rationale**: Justifies the choice based on non-functional requirements (concurrency and consistency).

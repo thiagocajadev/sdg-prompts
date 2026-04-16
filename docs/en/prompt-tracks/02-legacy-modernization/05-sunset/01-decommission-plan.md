@@ -30,18 +30,31 @@ The new software launched last week. We stopped using the old one. At the end of
 ### ✅ Good Example
 
 ```markdown
-# Decommissioning Plan: Sales Module V1
+# SPEC-022: Legacy Sales Module Sunset
 
-## Phase 1: Isolation
+## 1. Context
+Final deactivation of the Sales Module V1 to eliminate security risks and reduce cloud TCO by $850/month.
 
-- The `/v1/sales` routes were configured via Nginx to trigger a `301 Redirect` to the new `/v2/sales`.
-- The Legacy MySQL DB had its `writer` password revoked, operating only as a `read-only replica`. It will remain this way for 15 days (Smoke Monitoring Period).
+## 2. Success Metrics
+* 100% of traffic successfully redirected to V2.
+* Saving of $10,200 annually in cloud infrastructure costs.
 
-## Phase 2: Physical Decommissioning (2026-08-20)
+## 3. Scope & Scenarios
+* **Phase Isolation:** 301 Redirect for `/v1/sales`.
+* **Phase Termination:** Shutdown of EC2 `env:legacy-sales`.
 
-- Shutdown of all V1 EC2 instances identified under the AWS Tag `env:legacy-sales`.
-- Full dump generated and sent to **S3 Deep Glacier** with a Lifecycle rule for definitive purge in 5 years (Tax/Legal Compliance).
-- Definitive Drop of the legacy RDS database, resulting in a saving of $850/month of Cloud TCO.
+## 4. Constraints & Business Rules
+* Legacy DB must operate as `read-only` for 15 days before shutdown.
+* Mandatory S3 Deep Glacier dump for 5-year legal retention.
+
+## 5. Out of Scope
+* Decommissioning the internal CRM (planned for next quarter).
+* Deleting backups older than 5 years.
+
+## 6. Definition of Done
+- [ ] Nginx redirects verified.
+- [ ] Full DB dump confirmed in Glacier.
+- [ ] Legacy RDS instance dropped.
 ```
 
 > **Rationale**: Pure professionalism. Shutting down software is as technically considered as building it. We mitigate failures, handle accounting data retention, and celebrate the exact savings in infrastructure dollars.

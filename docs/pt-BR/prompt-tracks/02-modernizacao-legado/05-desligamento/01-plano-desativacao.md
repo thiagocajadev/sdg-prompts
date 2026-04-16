@@ -30,18 +30,31 @@ O sistema novo lançou semana passada. Paramos de usar o velho. No final do ano 
 ### ✅ Exemplo Bom
 
 ```markdown
-# Plano de Desativação: Módulo de Vendas V1
+# SPEC-015: Desativação do Módulo de Vendas V1
 
-## Fase 1: Isolamento
+## 1. Contexto
+Desligamento definitivo do software legado para eliminar riscos de segurança e reduzir o custo de infraestrutura (TCO).
 
-- As rotas `/v1/sales` foram configuradas via Nginx para disparar um `301 Redirect` para o novo `/v2/sales`.
-- O DB MySQL Legado teve sua senha de `writer` revogada, operando apenas como uma `read-only replica`. Ficará assim por 15 dias (Período de Monitoramento de Fumaça).
+## 2. Resultados Esperados (Success Metrics)
+* Economia imediata de $850/mês em custos de nuvem.
+* 100% de tráfego redirecionado via 301 para a versão V2.
 
-## Fase 2: Desativação Física (20/08/2026)
+## 3. Escopo e Cenários (User Stories)
+* **Isolamento:** Revogar acesso de escrita no DB e configurar redirecionamento Nginx.
+* **Desativação:** Desligamento de instâncias EC2 e remoção definitiva do banco RDS.
 
-- Desligamento de todas as instâncias EC2 V1 identificadas sob a Tag AWS `env:legacy-sales`.
-- Dump completo gerado e enviado ao **S3 Deep Glacier** com regra de Lifecycle para expurgo definitivo em 5 anos (Conformidade Fiscal/Legal).
-- Drop definitivo do banco RDS legado, resultando em uma economia de $850/mês de Cloud TCO.
+## 4. Restrições e Regras de Negócio
+* Período de monitoramento de "Somente Leitura" por 15 dias.
+* Dump final obrigatório no S3 Deep Glacier para retenção legal (5 anos).
+
+## 5. Fora de Escopo
+* Desativação de outros módulos legados (CRM, Logística).
+* Migração de logs de movimentação financeira (mantidos no Glacier).
+
+## 6. Definição de Pronto (DoD)
+- [ ] Nginx retornando 301 para todas as rotas V1.
+- [ ] RDS deletado após validação do dump no Glacier.
+- [ ] Instâncias legadas terminadas.
 ```
 
 > **Razão**: Profissionalismo puro. Desligar um software é tão técnico quanto construí-lo. Mitigamos falhas, cuidamos da retenção contábil de dados e celebramos a economia exata de dólares em infraestrutura.

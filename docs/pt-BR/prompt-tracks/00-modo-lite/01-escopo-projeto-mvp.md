@@ -33,11 +33,31 @@ Construir o site institucional para a clínica odontológica.
 ### ✅ Exemplo Bom
 
 ```markdown
-# Escopo do Site da Clínica Sorriso Feliz
+# SPEC-006: Site da Clínica Sorriso Feliz
 
-- **Problema de Negócio:** A clínica deseja presença digital no Google Ads e coletar Leads (contatos) de consulta inicial.
-- **Dentro do Escopo (Entregáveis):** Landing Page responsiva (página única), formulário de contato por e-mail, galeria estática de fotos da clínica e links dinâmicos que redirecionam para o WhatsApp da recepção com mensagem pré-preenchida.
-- **Fora do Escopo (Adiado para V2):** Não desenvolveremos banco de dados próprio, não desenvolveremos painel administrativo (CMS para trocar fotos) e não faremos integração com softwares médicos de agendamento de terceiros nesta fase.
+## 1. Contexto
+A clínica deseja presença digital para campanhas no Google Ads e uma forma eficiente de coletar leads qualificados no site.
+
+## 2. Resultados Esperados (Success Metrics)
+* Aumento de 20% no agendamento de consultas iniciais.
+* Taxa de conversão da Landing Page acima de 5%.
+
+## 3. Escopo e Cenários (User Stories)
+* **Escopo:** Landing Page responsiva com formulário de contato e galeria de fotos.
+* **Ação:** Redirect dinâmico para WhatsApp com mensagem pré-preenchida.
+
+## 4. Restrições e Regras de Negócio
+* O formulário deve validar e-mails corporativos.
+* O site deve ser indexável (SEO básico).
+
+## 5. Fora de Escopo
+* Painel administrativo (CMS) para troca de fotos.
+* Integração direta com softwares de agendamento médico.
+
+## 6. Definição de Pronto (DoD)
+- [ ] Formulário de contato verificado e enviando e-mails.
+- [ ] Layout responsivo testado em mobile e desktop.
+- [ ] Links de WhatsApp funcionais.
 ```
 
 > **Razão**: Defesa absoluta. A agência sabe que precisará apenas de ferramentas simples como Netlify e E-mail. Quando o cliente trouxer a integração de agendamento, será um novo orçamento.

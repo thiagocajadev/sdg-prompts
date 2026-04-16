@@ -32,16 +32,30 @@ App 100% live.
 ### ✅ Good Example
 
 ```markdown
-# 01 - Migration Roadmap
+# SPEC-021: Large-Scale RDS Migration
 
-## Steps
+## 1. Context
+Migrating core database to a new cloud instance with minimal downtime and data safety.
 
-Configure RDS Read Replica -> New Cloud Instance from October 1st to 31st.
+## 2. Success Metrics
+* Downtime under 30 seconds for DNS switch.
+* Data Sync lag < 10ms during migration.
 
-## Checklist
+## 3. Scope & Scenarios
+* **Phase A:** RDS Read Replica configuration.
+* **Phase B:** New Cloud Instance DNS redirection.
 
-- [x] Data Sync < 10ms (replica lag).
-- [x] 100% of users migrated via DNS redirection.
+## 4. Constraints & Business Rules
+* 100% user migration verified via redirection counters.
+* Zero data loss during the replica-to-master promotion.
+
+## 5. Out of Scope
+* Switching from RDS to a different database engine (e.g., NoSQL).
+* Modernizing the SQL schema during migration.
+
+## 6. Definition of Done
+- [ ] Replica lag verified under 10ms.
+- [ ] Successful DNS switch in the production environment.
 ```
 
 > **Rationale**: Defines technologies (RDS, DNS) and technical success metrics (latency and users).

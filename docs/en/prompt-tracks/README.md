@@ -14,21 +14,18 @@ This directory establishes the technical governance and architectural baseline f
 Standardized flow for rapid iteration on small-scale projects, proofs of concept, and utility tools.
 
 - **Pipeline**: Scope → Stack → Integration.
-- **Location**: `.ai/prompts/dev-tracks/00-lite-mode/`
 
 ### 01 - New Evolution (Greenfield)
 
 Primary flow for new system features, domain modules, or greenfield project architecture.
 
 - **Pipeline**: Foundation → Setup → Architecture → Security → Delivery → Features → Evolution.
-- **Location**: `.ai/prompts/dev-tracks/01-new-evolution/`
 
 ### 02 - Legacy Modernization (Brownfield)
 
 Standardized protocol for technical rescue, refactoring, and legacy system migration.
 
 - **Pipeline**: Foundation → Analysis → Strategy → Refactoring → Migration.
-- **Location**: `.ai/prompts/dev-tracks/02-legacy-modernization/`
 
 ---
 
@@ -41,32 +38,31 @@ Standardized protocol for technical rescue, refactoring, and legacy system migra
 
 ---
 
-## Specification Standard (Feature)
+## Specification Standard (SPEC)
 
-Every new functionality in the `04-features` directory follows this standard:
+Every new functionality in the `04-features` directory must follow this mandatory 6-step standard:
 
 ```markdown
-# [ID]- [Feature Name]
+# SPEC-XXX: [Title]
 
-## Context
+## 1. Context
+[Why this is being built, the problem it solves, and the target audience.]
 
-- Problem to be solved and expected business/system impact.
+## 2. Success Metrics
+* [Measurable outcome A]
+* [Measurable outcome B]
 
-## Scope
+## 3. Scope & Scenarios (User Stories)
+* [Detailed scenarios and user stories.]
 
-- Planned deliverables vs. Non-goals (what will NOT be covered).
+## 4. Constraints & Business Rules
+* [Logical limits and mandatory behaviors.]
 
-## Business Rules
+## 5. Out of Scope
+* [What will NOT be delivered in this task.]
 
-- Critical validations, success cases, and exception flows.
-
-## Architecture & Design
-
-- Integration points, API contracts, and Schema changes.
-
-## Implementation Roadmap
-
-- Concrete steps for the AI Agent or Developer to follow.
+## 6. Definition of Done
+- [ ] [Verification steps and completion criteria.]
 ```
 
 ---
@@ -108,37 +104,33 @@ Test everything.
 ### ✅ Good Example (Staff Quality)
 
 ```markdown
-# 04-01 - One-Click Checkout (Stripe)
+# SPEC-001: One-Click Checkout (Stripe)
 
-## Context
+## 1. Context
+Reduce cart abandonment during the final payment stage by simplifying the checkout flow for returning users.
 
-Reduce cart abandonment during the final payment stage.
-**Success Metric**: 15% increase in conversion for returning users.
+## 2. Success Metrics
+* 15% increase in conversion rate for returning users.
+* Average checkout time under 10 seconds.
 
-## Scope
+## 3. Scope & Scenarios (User Stories)
+* **Scenario A:** Success with cached card and >0 stock.
+* **Scenario B:** Atomic rollback if payment fails after stock reservation.
+* **User Story:** As a returning customer, I want to pay with one click so I don't have to re-enter my card details.
 
-- Integration with Stripe Vault for saved tokens.
-- **Non-Goals**: Full gateway migration or local card storage (PCI Compliance).
+## 4. Constraints & Business Rules
+* Only logged-in users with a valid `stripe_customer_id`.
+* Synchronous stock check before `PaymentIntent` confirmation.
+* All transaction IDs must follow the `chkt_` prefix for traceability.
 
-## Business Rules
+## 5. Out of Scope
+* Full gateway migration or alternative payment methods (e.g., Crypto).
+* Local storage of credit card numbers (PCI Compliance limit).
 
-- Only logged-in users with a valid `stripe_customer_id`.
-- Synchronous stock check before `PaymentIntent` confirmation.
-
-## Architecture & Design
-
-- **Integration**: `StripeService` + `OrderOrchestrator`.
-- **Constraint**: All IDs must follow the `chkt_` prefix for traceability.
-
-## Implementation Roadmap
-
-1. [ ] Create inventory pre-validation webhook.
-2. [ ] Implement Stripe Elements in the Guest Checkout flow.
-
-## Testing Strategy
-
-- **Scenario A**: Success with cached card and >0 stock.
-- **Scenario B**: Atomic rollback if payment fails after stock reservation.
+## 6. Definition of Done
+- [ ] Stripe Vault integration verified.
+- [ ] Inventory pre-validation webhook implemented.
+- [ ] 100% of e2e payment scenarios automated.
 ```
 
-> **Rationale**: Specific objectives, business metrics, clear boundaries, and atomic error handling strategies.
+> **Rationale**: Specific objectives, business metrics, clear boundaries, and atomic error handling strategies following the mandatory 6-step SPEC protocol.

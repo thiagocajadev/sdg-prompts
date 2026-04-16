@@ -27,19 +27,32 @@
 ### ✅ Good Example
 
 ```markdown
-# Checklist (Implementation Stages)
+# SPEC-023: Product Tags Rollout
 
-- `[FRONT]` Issue #212: Mock base form based on the `/api/v2/products` contract.
-- `[BACK]` Issue #213: Create PR with `Flyway Migration` `.sql`: adding the "tags" table (Add-only).
-- `[BACK]` Issue #214: Implement DB interface repositories.
-- `[BACK]` Issue #215: Connect Controller to UseCases.
-- `[INTEGRATION]`: Connect UI to already existing endpoints in Staging.
+## 1. Context
+Implementing a tagging system for products to improve categorization and searchability on the storefront.
 
-# Operational Strategy
+## 2. Success Metrics
+* Zero downtime during database migration.
+* 100% successful rollout to internal testers before public launch.
 
-- All endpoints and new UI components will be protected behind the Feature Flag `FEATURE_ENABLE_PRODUCT_TAGS=false`.
-- We will enable only for _Internal Users_ (Admins).
-- We will increase to 25% of the base. If Datadog points to a P95 latency error > 1s, the dashboard itself inverts the Flag (Automatic Instant Fallback). No need for a new Deploy to rollback the code.
+## 3. Scope & Scenarios (User Stories)
+* **Stage A:** Mock frontend based on `/api/v2/products` contract.
+* **Stage B:** Backend Flyway migration (Add-only).
+* **Stage C:** Connection of UseCases and Controllers.
+
+## 4. Constraints & Business Rules
+* Feature hidden behind `FEATURE_ENABLE_PRODUCT_TAGS` toggle.
+* Fallback plan: Instant toggle inversion if P95 latency > 1s in Datadog.
+
+## 5. Out of Scope
+* Tagging for legacy products unavailable in the new API.
+* Automatic AI-based tag suggestion (future phase).
+
+## 6. Definition of Done
+- [ ] Flyway migration verified in Staging.
+- [ ] Feature Flag integration tested for Admin users.
+- [ ] Unit tests for tag repository logic complete.
 ```
 
 > **Rationale**: Brings extreme confidence in CD (Continuous Delivery). The million-dollar feature is "live" in the code, but selectively enabled and with 1-second Fallbacks.

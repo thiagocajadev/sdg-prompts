@@ -39,17 +39,31 @@ We're losing time cleaning the code.
 ### ✅ Good Example
 
 ```markdown
-# 01 - Technical Debt Inventory
+# SPEC-020: Tech Debt Liquidation Plan
 
-## Risk Mapping
+## 1. Context
+`OrderProcessor` module is highly coupled to `DBContext`, causing a 60% loss in developer productivity due to recurring bugs.
 
-`OrderProcessor` module is highly coupled to `DBContext`, making unit testing impossible.
+## 2. Success Metrics
+* Reduce bug-fixing time by 40% in the core module.
+* Prevent $500k in potential regulatory fines.
 
-## Cost of Inertia
+## 3. Scope & Scenarios
+* **Problem:** Inability to unit test the domain logic.
+* **Impact:** 60% of sprint time spent on legacy maintenance.
 
-- **Operational**: The team spends 60% of the sprint fixing recurring bugs in the legacy system.
-- **Economic**: Monthly maintenance of the legacy server costs 3x more than a modern serverless instance.
-- **Risk**: Potential $500k fine due to the lack of audit logs required by the new banking regulation.
+## 4. Constraints & Business Rules
+* Refactor must maintain 100% backward compatibility with existing data.
+* Mandatory audit logs for all financial mutations.
+
+## 5. Out of Scope
+* Improving UI load times for the admin panel.
+* Decommissioning non-critical reporting modules.
+
+## 6. Definition of Done
+- [ ] Domain logic isolated from `DBContext`.
+- [ ] Unit tests reaching 80% coverage in the refactored module.
+- [ ] Audit logs verified in production.
 ```
 
 > **Rationale**: Transforms technical debt into **business numbers**. A 60% loss in productivity and real fines are unbeatable arguments for project approval.

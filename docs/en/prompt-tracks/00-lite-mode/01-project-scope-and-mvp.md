@@ -35,11 +35,32 @@ Build the institutional website for the dental clinic.
 ### ✅ Good Example
 
 ```markdown
-# Happy Smile Clinic Website Scope
+# SPEC-005: Happy Smile Clinic Launch
 
-- **Business Problem:** The clinic wants digital presence on Google Ads and to collect initial consultation Leads.
-- **In-Scope (Deliverables):** Responsive Landing Page (One-page), email contact form, static clinic photo gallery, and dynamic Links that redirect to the Receptionist's Whatsapp with a pre-filled message.
-- **Out-of-Scope (Deferred to V2):** We will not develop our own Database, we will not develop a CMS Panel (Admin to change photos), and we will not integrate with third-party Medical Scheduling Software in this phase.
+## 1. Context
+The clinic needs a digital presence to run Google Ads campaigns and collect initial consultation leads.
+
+## 2. Success Metrics
+* 20% increase in monthly consultation inquiries.
+* Lead capture rate > 5% for landing page visitors.
+
+## 3. Scope & Scenarios (User Stories)
+* **Scenario A:** Visitor arrives, views services, and fills the WhatsApp/Email lead form.
+* **User Story:** As a new patient, I want to contact the clinic via WhatsApp so I can schedule my first visit easily.
+
+## 4. Constraints & Business Rules
+* Responsive One-page design.
+* WhatsApp links must include pre-filled messages for the receptionist.
+
+## 5. Out of Scope
+* Patient management database or login system.
+* CMS for changing content/photos.
+* Third-party scheduling software integration.
+
+## 6. Definition of Done
+- [ ] Landing page deployed to Netlify.
+- [ ] Working contact form (Resend/Mailchimp integration).
+- [ ] WhatsApp redirection logic.
 ```
 
 > **Rationale**: Absolute defense. The agency knows they will only need to use Netlify and Email. When the client brings up the Scheduling integration, it will be a new budget.

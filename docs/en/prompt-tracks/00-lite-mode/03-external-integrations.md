@@ -29,16 +29,32 @@ We fire the form to the company's mailchimp. The Front-end does a fetch with the
 ### ✅ Good Example
 
 ```markdown
-# Happy Smile API Integrations
+# SPEC-007: Resend & Stripe Integration
 
-## Transactional Emails (Form to the Clinic)
+## 1. Context
+Integrating transactional emails and payment checkout for the Happy Smile project while maintaining high security.
 
-- **Provider:** We will use the [Resend API](https://resend.com) on the client's domain `docs@sorrisofeliz.com`.
-- **Secure Magic Routes:** We created a Serverless endpoint (Edge API On Vercel) at the `POST /api/leads` route. The React client form calls this endpoint without any tokens. The underlying Node.js will consume the shielded token via Vercel's `.env` and inject it into Resend: `RESEND_API_KEY`.
+## 2. Success Metrics
+* Zero leaks of API keys in the client-side bundle.
+* 100% success rate for webhook signature validation.
 
-## Checkout (Planned)
+## 3. Scope & Scenarios (User Stories)
+* **Scenario A (Emails):** User submits contact form, Resend sends email via Serverless endpoint.
+* **Scenario B (Checkout):** User pays via Stripe Hosted Checkout, system validates webhook.
 
-- **Gateway:** When clients pay for direct consultations (Stripe Hosted Checkout), the publishable variables will be inserted into NEXT*PUBLIC_PUBLISHABLE_KEY, but \_webhooks* will return with cryptographic signature `STRIPE_WEBHOOK_SECRET` validated at `/api/stripe-webhook`.
+## 4. Constraints & Business Rules
+* Use Resend API for domain `docs@sorrisofeliz.com`.
+* All API keys must be stored in Vercel's `.env` and accessed via API routes.
+* Stripe webhooks must validate the `STRIPE_WEBHOOK_SECRET`.
+
+## 5. Out of Scope
+* Custom email template builder for the client.
+* Direct integration with PayPal or other payment gateways.
+
+## 6. Definition of Done
+- [ ] `POST /api/leads` endpoint implemented with Resend.
+- [ ] `STRIPE_WEBHOOK_SECRET` validation logic at `/api/stripe-webhook`.
+- [ ] Environment variables documented in `.env.example`.
 ```
 
 > **Rationale**: Maps exactly which third-party fronts are used, how the keys will be called, and protects the Freelancer against chronic Cybersecurity flaws that could ruin the MVP.

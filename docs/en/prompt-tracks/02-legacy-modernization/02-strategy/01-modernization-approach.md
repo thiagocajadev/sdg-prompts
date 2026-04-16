@@ -46,15 +46,31 @@ Put a chat in the old system.
 ### ✅ Good Example
 
 ```markdown
-# 01 - Modernization Approach
+# SPEC-008: Legacy Progressive Isolation
 
-## Interface Modernization (UX/UI)
+## 1. Context
+Mainframe/Delphi legacy system needs UI modernization without stopping the operation. We will use an iframe-based isolation strategy.
 
-Migration to the new Design System in React, replacing Delphi screens via controlled iframe (Progressive Isolation).
+## 2. Success Metrics
+* 30% increase in user speed for core flows in the new UI.
+* Zero data loss during legacy-to-modern synchronization.
 
-## AI Opportunities
+## 3. Scope & Scenarios (User Stories)
+* **Scenario A:** Legacy Delphi screens are gradually replaced by new React views via controlled iframes.
+* **Scenario B:** An AI Agent extracts data from non-API invoices via OCR/MCP.
 
-Implement an Agent via MCP for automated data extraction from old invoices that do not have an API.
+## 4. Constraints & Business Rules
+* Use the project's new Design System for all React views.
+* Iframe isolation must be controlled via a common authentication layer (SSO).
+
+## 5. Out of Scope
+* Complete rewrite of the legacy database schema.
+* Modernizing legacy reporting tools that are scheduled for decommission.
+
+## 6. Definition of Done
+- [ ] React/Delphi iframe communication protocol defined.
+- [ ] Agent MCP integration for invoice data extraction.
+- [ ] SSO validation for legacy-iframe bridge.
 ```
 
 > **Rationale**: Defines interface technologies (React, iframe) and a real AI use case (MCP/OCR) to "save" inefficient legacy processes.

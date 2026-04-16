@@ -27,16 +27,30 @@ Vamos usar Repository e Factory.
 ### ✅ Exemplo Bom
 
 ```markdown
-# 02 - Padrões de Projeto: Módulo de Vendas
+# SPEC-012: Injeção de Dependência e Repositórios
 
-## Padrões Adotados
+## 1. Contexto
+Implementar padrões de criação e acesso a dados para desacoplar a lógica de negócio de implementações técnicas.
 
-- **Repository Pattern**: Criaremos `IOrderRepository`. Isso permite testar a lógica de vendas usando um repositório em memória em vez de um banco real.
-- **Factory**: Utilizada para construir objetos de `PaymentGateway` complexos baseados no tipo de cartão do cliente.
+## 2. Resultados Esperados (Success Metrics)
+* 100% de testabilidade da lógica de vendas usando repositórios em memória.
+* Facilidade de troca de gateway de pagamento (Stripe para Pagar.me).
 
-## Racional
+## 3. Escopo e Cenários (User Stories)
+* **Padrão Repository:** Interface `IOrderRepository` para abstrair o banco real.
+* **Padrão Factory:** Criação de `PaymentGateway` dinâmica baseada no tipo de cartão.
 
-O uso de Inversão de Dependência garantirá que nossa lógica de vendas não dependa diretamente da API do Stripe ou do Pagar.me, facilitando migrações futuras.
+## 4. Restrições e Regras de Negócio
+* Uso obrigatório de Inversão de Dependência para serviços externos.
+* Repositórios não devem conter lógica de negócio, apenas acesso a dados.
+
+## 5. Fora de Escopo
+* Implementação de CQRS complexo.
+* Event Sourcing para auditoria de vendas.
+
+## 6. Definição de Pronto (DoD)
+- [ ] Interface `IOrderRepository` definida.
+- [ ] Factory de pagamentos testada com múltiplos provedores.
 ```
 
 > **Razão**: Contextualiza o padrão com um problema real (Vendas/Pagamento) e justifica através da testabilidade e flexibilidade.

@@ -33,17 +33,31 @@ Whoever the creator wants.
 ### ✅ Good Example
 
 ```markdown
-# 01 - CI/CD Pipeline
+# SPEC-018: High-Stakes CI/CD Pipeline
 
-## Deploy Flow
+## 1. Context
+Automating the deployment flow to eliminate manual errors and ensure code quality in production.
 
-GitHub Actions: `LINT` -> `UNIT-TEST` -> `SAST` -> `DOCKER-BUILD` -> `AWS-DEPLOY`.
+## 2. Success Metrics
+* Deployment failure rate under 1%.
+* Pipeline execution time under 10 minutes.
 
-## Approval Requirements
+## 3. Scope & Scenarios
+* **Flow:** `LINT` -> `UNIT-TEST` -> `SAST` -> `DOCKER-BUILD` -> `AWS-DEPLOY`.
+* **Tool:** GitHub Actions.
 
-- [x] Linter passing.
-- [x] 100% of unit tests green.
-- [x] 0 critical vulnerabilities in SonarQube.
+## 4. Constraints & Business Rules
+* 100% of unit tests must be green for build initiation.
+* Zero critical vulnerabilities in SonarQube (SAST).
+
+## 5. Out of Scope
+* Automatic rollback logic in this phase (manual rollback only).
+* Deploying to regions outside `us-east-1`.
+
+## 6. Definition of Done
+- [ ] GitHub Actions workflow file created.
+- [ ] SonarQube integration verified.
+- [ ] Successful deploy to staging.
 ```
 
 > **Rationale**: Defines technologies (GitHub Actions, SonarQube), clear steps, and rigid requirements for the PR.

@@ -28,17 +28,32 @@ Vou testar o login no manual e depois fazer uns testes unitários.
 ### ✅ Exemplo Bom
 
 ```markdown
-# 04 - Estratégia de Testes: Sistema de Checkout
+# SPEC-004: Estratégia de Testes (Checkout)
 
-## Cenários de Teste
+## 1. Contexto
+Plano de validação para o fluxo de checkout, garantindo resiliência em falhas e precisão nos cálculos.
 
-- **Unitário**: Testar se o cálculo de ICMS está correto para diferentes estados (cenários: SP, RJ, MG).
-- **Integração**: Validar se o status do pedido muda para `pago` após o recebimento do webhook do Stripe.
-- **E2E (Caminho Feliz)**: Usuário adiciona item -> Preenche endereço -> Paga -> Recebe tela de sucesso.
+## 2. Resultados Esperados (Success Metrics)
+* Cobritura de 90% para lógica de impostos (ICMS).
+* Zero falhas de integração não detectadas entre Checkout e Stripe.
 
-## Dados de Teste
+## 3. Escopo e Cenários (User Stories)
+* **Unitário:** Cálculo de ICMS para diferentes estados (SP, RJ, MG).
+* **Integração:** Validação de webhook do Stripe e mudança de status do pedido.
+* **E2E:** Jornada completa do usuário desde o carrinho até a tela de sucesso.
 
-Utilizaremos o cartão de teste do Stripe `4242...` para garantir que o fluxo de pagamento real não seja disparado.
+## 4. Restrições e Regras de Negócio
+* Utilizar cartão de teste do Stripe (`4242...`) para evitar transações reais.
+* Mocks obrigatórios para serviços externos em testes unitários.
+
+## 5. Fora de Escopo
+* Testes de carga (> 1000 transações/segundo).
+* Testes manuais de interface visual.
+
+## 6. Definição de Pronto (DoD)
+- [ ] Suíte de testes unitários passando no CI.
+- [ ] Teste E2E cobrindo o "Caminho Feliz" finalizado.
+- [ ] Script de população de dados de teste criado.
 ```
 
 > **Razão**: Define níveis de teste (Unitário, Integração, E2E) e especifica dados reais para simular cenários complexos, garantindo a robustez da entrega.

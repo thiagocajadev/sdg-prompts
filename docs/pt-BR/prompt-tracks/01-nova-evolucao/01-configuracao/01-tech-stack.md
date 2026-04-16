@@ -43,20 +43,32 @@ Vamos usar a mais nova ou a que funcionar.
 ### ✅ Exemplo Bom
 
 ```markdown
-# 01 - Stack Técnica
+# SPEC-010: Stack Técnica de Alta Performance
 
-## Tecnologias Escolhidas
+## 1. Contexto
+Definição de stack moderna focada em concorrência massiva e consistência de dados financeiros para o novo gateway.
 
-Go 1.21, PostgreSQL 15, Redis 7.
+## 2. Resultados Esperados (Success Metrics)
+* Capacidade de processamento de 5k RPS (Requests Per Second).
+* Tempo de resposta da API (P95) < 100ms.
 
-## Racional da Escolha
+## 3. Escopo e Cenários (User Stories)
+* **Stack:** Go 1.21 + PostgreSQL 15 + Redis 7.
+* **Segurança:** Dependabot configurado para auditorias de segurança semanais.
 
-O Go foi escolhido pela performance em concorrência (Goroutines) necessária para o processamento de 5k RPS, e o PostgreSQL pela consistência ACID em transações financeiras críticas.
+## 4. Restrições e Regras de Negócio
+* Go devido à performance em concorrência (Goroutines).
+* PostgreSQL para garantir consistência ACID em transações críticas.
+* Somente versões pares (LTS) do Node.js podem ser utilizadas.
 
-## Gestão de Versões
+## 5. Fora de Escopo
+* Suporte a bancos NoSQL nesta fase inicial.
+* Configurações de Service Mesh complexas.
 
-- **Ambientes**: Somente versões pares do Node.js (ex: v20) e Go em suas versões suportadas.
-- **Atualizações Automáticas**: Dependabot configurado via `.github/dependabot.yml` para atualizações de segurança semanais.
+## 6. Definição de Pronto (DoD)
+- [ ] Linter e testes unitários configurados no pipeline.
+- [ ] Arquivo `.github/dependabot.yml` validado.
+- [ ] Documentação de trade-offs aprovada pela gerência técnica.
 ```
 
 > **Razão**: Justifica a escolha baseada em requisitos não-funcionais (concorrência e consistência).

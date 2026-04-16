@@ -23,3 +23,90 @@ Projetada para lidar com sistemas existentes que precisam de evolução, limpeza
 1. **Escolha o contexto**: Identifique em qual estágio o seu projeto se encontra.
 2. **Siga a numeração**: Os arquivos são numerados para garantir a ordem lógica (00 -> 01 -> 02...).
 3. **Respeite os Gates**: Não avance para uma especificação de "Arquitetura" (02) sem antes ter a aprovação da "Fundação/Visão" (01).
+
+---
+
+## Padrão de Especificação (SPEC)
+
+Toda nova funcionalidade no diretório `04-funcionalidades` deve seguir este padrão obrigatório de 6 passos:
+
+```markdown
+# SPEC-XXX: [Título]
+
+## 1. Contexto
+[Por que isso está sendo construído, o problema que resolve e o público-alvo.]
+
+## 2. Resultados Esperados (Success Metrics)
+* [Resultado mensurável A]
+* [Resultado mensurável B]
+
+## 3. Escopo e Cenários (User Stories)
+* [Cenários detalhados e histórias de usuário.]
+
+## 4. Restrições e Regras de Negócio
+* [Limites lógicos e comportamentos obrigatórios.]
+
+## 5. Fora de Escopo
+* [O que NÃO será entregue nesta tarefa.]
+
+## 6. Definição de Pronto (DoD)
+- [ ] [Passos de verificação e critérios de aceite.]
+```
+
+---
+
+## Exemplos de Qualidade Staff
+
+### ❌ Exemplo Ruim (IA Genérica / Slop)
+
+```markdown
+# 04-01 - Melhoria no Sistema
+
+## Contexto
+Melhorar o sistema para os usuários e aumentar as vendas.
+
+## Escopo
+Tudo o que for necessário. Sem limites.
+
+## Regras de Negócio
+Sistema rápido. Usuários podem comprar coisas.
+
+## Arquitetura
+Melhores práticas de mercado. Integração com banco.
+```
+
+> **Razão**: Vago, sem métricas, sem definições técnicas e sem critérios claros de aceitação. Puro "IA slop".
+
+### ✅ Exemplo Bom (Qualidade Staff)
+
+```markdown
+# SPEC-001: Checkout em Um Clique (Stripe)
+
+## 1. Contexto
+Reduzir o abandono de carrinho na etapa final de pagamento, simplificando o fluxo para usuários recorrentes.
+
+## 2. Resultados Esperados (Success Metrics)
+* Aumento de 15% na taxa de conversão para usuários que retornam.
+* Tempo médio de checkout inferior a 10 segundos.
+
+## 3. Escopo e Cenários (User Stories)
+* **Cenário A:** Sucesso com cartão salvo e estoque > 0.
+* **Cenário B:** Rollback atômico se o pagamento falhar após reserva de estoque.
+* **User Story:** Como cliente recorrente, quero pagar com um clique para não ter que redigitar meus dados.
+
+## 4. Restrições e Regras de Negócio
+* Apenas para usuários logados com um `stripe_customer_id` válido.
+* Verificação de estoque síncrona antes da confirmação do `PaymentIntent`.
+* IDs de transação devem seguir o prefixo `chkt_` para rastreabilidade.
+
+## 5. Fora de Escopo
+* Migração total de gateway ou métodos alternativos (ex: Cripto).
+* Armazenamento local de números de cartão (limite de PCI Compliance).
+
+## 6. Definição de Pronto (DoD)
+- [ ] Integração com Stripe Vault verificada.
+- [ ] Webhook de pré-validação de inventário implementado.
+- [ ] 100% dos cenários de pagamento e2e automatizados.
+```
+
+> **Razão**: Objetivos específicos, métricas de negócio, limites claros e estratégias de erro atômicas seguindo o protocolo SPEC de 6 passos.

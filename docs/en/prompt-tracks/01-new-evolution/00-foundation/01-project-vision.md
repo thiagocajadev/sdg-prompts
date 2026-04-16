@@ -57,21 +57,31 @@ As soon as possible.
 ### ✅ Good Example
 
 ```markdown
-# 01 - Project Vision
+# SPEC-009: Rare Parts Marketplace Vision
 
-## Description
+## 1. Context
+Expansion of automotive part sales to the Latin American market, targeting classic car enthusiasts.
 
-To be the leading platform for rare automotive parts sales in Latin America by 2027.
+## 2. Success Metrics
+* ROI positive within 18 months of launch.
+* Partnership finalized with at least 5 major antique dealers.
 
-## Budget and Resources
+## 3. Scope & Scenarios (User Stories)
+* **Goal:** Be the leading platform for rare parts by 2027.
+* **Scenarios:** POC launch in May, MVP launch in September.
 
-- **Infra Budget**: Maximum of $15,000/month.
-- **Team**: 2 Senior Engineers and 1 UX Designer.
+## 4. Constraints & Business Rules
+* **Infra Budget**: Max $15,000/month.
+* **Team**: 2 Senior Engineers and 1 UX Designer.
 
-## Deadlines and Expectations
+## 5. Out of Scope
+* Sales of new/common car parts (focus only on rare/classic).
+* Direct shipping logistics (handled by third-parties).
 
-- **POC**: Until May 15th.
-- **MVP**: Beta launch on September 1st (Hard deadline for the industry trade show).
+## 6. Definition of Done
+- [ ] Market analysis complete.
+- [ ] POC roadmap approved.
+- [ ] Hiring of the specialized team.
 ```
 
 > **Rationale**: Defines clear cost limits and fixed dates that allow for team capacity planning.

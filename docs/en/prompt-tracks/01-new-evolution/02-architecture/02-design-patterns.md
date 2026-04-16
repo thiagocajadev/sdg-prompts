@@ -41,19 +41,30 @@ The code will be clean and commented.
 ### ✅ Good Example
 
 ```markdown
-# 02 - Architectural Styles and Design Patterns
+# SPEC-015: Modular Monolith Foundation
 
-## Architectural Style (Macro)
+## 1. Context
+Designing the macro and micro architecture for a system requiring speed of delivery and future scalability.
 
-**Modular Monolith**. We will start bundled to reduce network costs and DevOps complexity, separating contexts via strict internal packages.
+## 2. Success Metrics
+* Module decoupling that allows 1-hour "extraction" to microservices.
+* 100% adherence to the Result Pattern for error handling.
 
-## Chosen Patterns
+## 3. Scope & Scenarios
+* **Style:** Modular Monolith with Vertical Slices.
+* **Pattern:** Hexagonal Architecture (Ports and Adapters).
 
-Hexagonal Architecture with Vertical Slices for modules. Business logic via Result Pattern.
+## 4. Constraints & Business Rules
+* No pure exceptions for business flow control (use Result<T>).
+* Direct database calls from the UI/Controller are strictly forbidden.
 
-## Implementation Patterns
+## 5. Out of Scope
+* Implementing event sourcing or eventual consistency.
+* Designing for multi-region active-active clusters.
 
-Errors will be handled via the Envelope Pattern (Result<T>), avoiding pure exceptions for business flow control.
+## 6. Definition of Done
+- [ ] Architecture diagram approved.
+- [ ] Result Pattern utility implemented.
 ```
 
 > **Rationale**: Explicitly addresses the macro trade-off (Modular Monolith vs Microservices) and defines specific, testable code choices.

@@ -31,18 +31,31 @@ Vou fazer o backend e depois o frontend. Se der erro eu dou ctrl+z.
 ### ✅ Exemplo Bom
 
 ```markdown
-# 05 - Plano de Implementação: Módulo de Checkout
+# SPEC-005: Roadmap de Implementação (Checkout)
 
-## Sequência de Tarefas
+## 1. Contexto
+Sequenciamento técnico para a entrega do Módulo de Checkout de forma segura e incremental.
 
-1. Criar novo campo `tax_id` na tabela `Orders` (Permitir nulo para compatibilidade).
-2. Criar serviço `TaxCalculator` com 100% de testes unitários.
-3. Habilitar a nova regra via **Feature Flag** apenas para o ambiente de Staging.
+## 2. Resultados Esperados (Success Metrics)
+* Rollback possível em menos de 10 segundos via Feature Flag.
+* Deploy sem downtime para as versões legadas do sistema.
 
-## Plano de Rollback
+## 3. Escopo e Cenários (User Stories)
+* **Tarefa 1:** Criar campo `tax_id` na tabela `Orders` (Permitir nulo).
+* **Tarefa 2:** Implementar serviço `TaxCalculator` com 100% de testes unitários.
 
-- **Código**: Desativar a Feature Flag no painel de controle (tempo estimado: 10s).
-- **Dados**: O campo `tax_id` aceita nulos, portanto não quebra as versões anteriores do código se precisarmos reverter o binário.
+## 4. Restrições e Regras de Negócio
+* Habilitação da regra via **Feature Flag** em Staging primeiro.
+* Desativação instantânea da flag se erro P95 > 1s no Datadog.
+
+## 5. Fora de Escopo
+* Migrações de dados retroativas para pedidos antigos.
+* Alteração manual de status de impostos no banco de dados.
+
+## 6. Definição de Pronto (DoD)
+- [ ] Feature Flag funcional e testada em Staging.
+- [ ] Serviço `TaxCalculator` integrado ao fluxo principal.
+- [ ] Plano de reversão documentado e verificado.
 ```
 
 > **Razão**: Divide o trabalho de forma lógica e garante que o sistema pode ser revertido em segundos através de uma flag, sem a necessidade de um novo deploy de emergência.

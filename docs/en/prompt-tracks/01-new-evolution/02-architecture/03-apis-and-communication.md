@@ -37,19 +37,30 @@ We will use RabbitMQ for heavy background tasks.
 ### ✅ Good Example
 
 ```markdown
-# 03 - Integrations, APIs, and Communication
+# SPEC-016: Unified Communication Strategy
 
-## Contracts and Interfaces (Synchronous)
+## 1. Context
+Defining how internal and external components communicate to ensure security and speed.
 
-Public exposure via **GraphQL** (using BFF for mobile payload limitation). Internal Service-to-Service communication via **gRPC** ensuring strong typing and low latency.
+## 2. Success Metrics
+* Internal latency under 10ms for 95% of service-to-service calls.
+* Zero unauthorized access to core APIs.
 
-## Entry Gates and Routing
+## 3. Scope & Scenarios
+* **Sync:** GraphQL for clients, gRPC for services.
+* **Async:** RabbitMQ for "OrderCreated" notifications.
 
-All external traffic passes through an **API Gateway** responsible for TLS termination, Rate Limiting, and JWT token validation (Auth offloading).
+## 4. Constraints & Business Rules
+* Mandatory API Gateway for TLS and Rate Limiting.
+* Webhook signatures must be validated using cryptographic secrets.
 
-## Asynchronous and Event-Driven
+## 5. Out of Scope
+* Implementing a custom service mesh like Istio.
+* Managing legacy SOAP or XML-based integrations.
 
-The checkout finalization string will emit an "OrderCreated" event via **RabbitMQ**. The Notification service will act as a subscriber to dispatch emails without blocking the user's HTTP response (temporal decoupling).
+## 6. Definition of Done
+- [ ] Gateway authentication layer verified.
+- [ ] RabbitMQ publisher/subscriber logic scaffolded.
 ```
 
 > **Rationale**: Defines objective protocol choices based on client profile (GraphQL vs gRPC), protects the core domain using API Gateways, and applies Event-Driven Architecture (EDA) for secondary background flows.
