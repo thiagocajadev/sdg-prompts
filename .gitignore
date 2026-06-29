@@ -11,3 +11,11 @@ yarn-error.log*
 .env
 .env.local
 .env.*.local
+
+# Environment — never commit secrets
+.env.*
+
+# AI artifacts — session state, not project logic
+.ai/backlog/
+tmp/
+temp/

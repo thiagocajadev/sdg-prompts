@@ -5,7 +5,7 @@ O **Guia de Especificações (SDG — Spec-Driven Guide)** estabelece um ciclo d
 O ciclo segue cinco fases obrigatórias: **SPEC → PLAN → CODE → TEST → END**.
 
 > [!TIP]
-> **DNA Teórico**: Quer entender as origens do padrão SPEC? Leia nossa [**Metodologia e Referências**](../assets/REFERENCES.pt-BR.md) para um detalhamento dos pilares centrais e material de origem arquitetural.
+> **DNA Teórico**: Quer entender as origens do padrão SPEC? Leia nossa [**Metodologia e Referências**](../../assets/REFERENCES.pt-BR.md) para um detalhamento dos pilares centrais e material de origem arquitetural.
 
 ---
 

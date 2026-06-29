@@ -5,7 +5,7 @@ The **Spec-Driven Guide (SDG)** enforces a standardized lifecycle for every task
 The cycle follows five mandatory phases: **SPEC → PLAN → CODE → TEST → END**.
 
 > [!TIP]
-> **Theoretical DNA**: Want to understand the origins of the SPEC pattern? Read our [**Methodology & References**](../assets/REFERENCES.md) for a breakdown of the core pillars and architectural source material.
+> **Theoretical DNA**: Want to understand the origins of the SPEC pattern? Read our [**Methodology & References**](../../assets/REFERENCES.md) for a breakdown of the core pillars and architectural source material.
 
 ---
 

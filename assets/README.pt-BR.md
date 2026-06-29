@@ -93,7 +93,7 @@ Atualmente, o cancelamento de assinaturas é feito apenas via chat humano, geran
 
 ## Licença
 
-Este projeto está licenciado sob a [Licença ISC](LICENSE). [**Changelog**](CHANGELOG.md)
+Este projeto está licenciado sob a [Licença ISC](../LICENSE). [**Changelog**](CHANGELOG.md)
 
 ---
 
