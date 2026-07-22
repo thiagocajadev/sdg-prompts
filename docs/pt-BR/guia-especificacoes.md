@@ -1,6 +1,6 @@
 # Guia de Especificações (Ciclo de tarefas em 5 fases)
 
-O **Guia de Especificações (SDG — Spec-Driven Guide)** estabelece um ciclo de vida padronizado para cada tarefa. O objetivo é garantir que o código seja escrito apenas após a aprovação total da intenção e do plano de implementação.
+O **Guia de Especificações (SDG, Spec-Driven Guide)** estabelece um ciclo de vida padronizado para cada tarefa. O objetivo é garantir que o código seja escrito apenas após a aprovação total da intenção e do plano de implementação.
 
 O ciclo segue cinco fases obrigatórias: **SPEC → PLAN → CODE → TEST → END**.
 
@@ -8,6 +8,8 @@ O ciclo segue cinco fases obrigatórias: **SPEC → PLAN → CODE → TEST → E
 > **DNA Teórico**: Quer entender as origens do padrão SPEC? Leia nossa [**Metodologia e Referências**](../../assets/REFERENCES.pt-BR.md) para um detalhamento dos pilares centrais e material de origem arquitetural.
 
 ---
+
+<a id="fase-spec"></a>
 
 ## 1. Fase: SPEC (O contrato)
 
@@ -51,6 +53,8 @@ Atualmente o cancelamento é via chat, gerando carga no suporte. Esta spec autom
 
 ---
 
+<a id="fase-plan"></a>
+
 ## 2. Fase: PLAN (A estratégia)
 
 **Objetivo:** Sequenciar a especificação em tarefas atômicas e executáveis.
@@ -65,6 +69,8 @@ Atualmente o cancelamento é via chat, gerando carga no suporte. Esta spec autom
 
 ---
 
+<a id="fase-code"></a>
+
 ## 3. Fase: CODE (A execução)
 
 **Objetivo:** Implementar o plano seguindo os padrões arquiteturais.
@@ -73,10 +79,12 @@ Atualmente o cancelamento é via chat, gerando carga no suporte. Esta spec autom
 - **Padrões**:
   - Seguir a **Narrativa em Cascata** (chamadores definidos acima dos chamados).
   - Aderir ao estilo do projeto (Vertical Slice, MVC, etc.).
-  - Implementar rigorosamente o que foi aprovado no plano (evitando YAGNI — funcionalidade desnecessária).
+  - Implementar rigorosamente o que foi aprovado no plano (evitando YAGNI, ou seja, funcionalidade desnecessária).
   - Notificar impedimentos imediatamente em vez de tentar contorná-los.
 
 ---
+
+<a id="fase-test"></a>
 
 ## 4. Fase: TEST (A verificação)
 
@@ -89,6 +97,8 @@ Atualmente o cancelamento é via chat, gerando carga no suporte. Esta spec autom
   - **Loop de Refatoração**: Se um teste falhar, o agente refatora o código e tenta novamente (até 3 vezes antes de parar para reportar um bloqueio).
 
 ---
+
+<a id="fase-end"></a>
 
 ## 5. Fase: END (A entrega)
 

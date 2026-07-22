@@ -2,6 +2,7 @@ node_modules/
 .ai/
 .ai-backlog/
 CLAUDE.md
+AGENTS.md
 package-lock.json
 .DS_Store
 *.log
@@ -19,3 +20,7 @@ yarn-error.log*
 .ai/backlog/
 tmp/
 temp/
+
+.ai/backlog/tasks.md
+.ai/backlog/impact-map.md
+.ai/last-prompt.md

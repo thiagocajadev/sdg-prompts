@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+### Fixed
+
+## [1.1.2] - 2026-07-22
+
+### Fixed
+- Rewrote both READMEs (EN/PT-BR) in the Writing Soul voice: removed inflated openers, passive constructions, unglossed jargon and every em dash.
+- Added a **Concepts** table to both READMEs, grouped in four blocks (cycle, project maturity, specification, governance), so newcomers can decode the technical terms used across the tracks.
+- Added explicit ASCII anchors (`phase-*` / `fase-*`) to the phase headings of both guides, so cross-links no longer depend on accented or renamed heading text.
+
 ## [1.1.1] - 2026-06-29
 
 ### Fixed

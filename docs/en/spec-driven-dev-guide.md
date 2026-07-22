@@ -9,6 +9,8 @@ The cycle follows five mandatory phases: **SPEC → PLAN → CODE → TEST → E
 
 ---
 
+<a id="phase-spec"></a>
+
 ## 1. Phase: SPEC (The Contract)
 
 **Goal:** Define the implementation contract and verification criteria.
@@ -51,6 +53,8 @@ Currently, cancellation is handled via chat, leading to high support load. This 
 
 ---
 
+<a id="phase-plan"></a>
+
 ## 2. Phase: PLAN (The Strategy)
 
 **Goal:** Sequence the Spec into atomic, executable tasks.
@@ -65,6 +69,8 @@ Currently, cancellation is handled via chat, leading to high support load. This 
 
 ---
 
+<a id="phase-code"></a>
+
 ## 3. Phase: CODE (The Execution)
 
 **Goal:** Implement the plan following architectural standards.
@@ -78,6 +84,8 @@ Currently, cancellation is handled via chat, leading to high support load. This 
 
 ---
 
+<a id="phase-test"></a>
+
 ## 4. Phase: TEST (The Verification)
 
 **Goal:** Ensure the implementation matches the Spec's Verification Checklist.
@@ -89,6 +97,8 @@ Currently, cancellation is handled via chat, leading to high support load. This 
   - **Refactor Loop:** If a test fails, the agent refactors the code and tries again (up to 3 times before stopping to report a blocker).
 
 ---
+
+<a id="phase-end"></a>
 
 ## 5. Phase: END (The Delivery)
 

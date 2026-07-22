@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>SDG Prompts — Spec-Driven Guide</h1>
+  <h1>SDG Prompts · Spec-Driven Guide</h1>
 
   <img src="img/sdg-agents-icon-light.svg" alt="SDG Prompts Logo" width="480">
 
@@ -18,28 +18,75 @@
   </p>
 </div>
 
-Bem-vindo ao ecossistema **SDG Prompts**. Este repositório contém uma coleção estruturada de trilhas de prompts e protocolos de governança projetados para guiar agentes de IA autônomos e desenvolvedores através do ciclo de vida de desenvolvimento de software.
+**SDG Prompts** é uma coleção de trilhas de prompts e regras de governança para times que trabalham ao lado de agentes de IA. Cada trilha é uma sequência de arquivos Markdown entregues ao agente, uma fase por vez.
 
 ## 🎯 O Objetivo
 
-Oferecemos uma estrutura onde o código se torna o resultado natural de uma especificação precisa. Ao aderir ao protocolo **SDG (Guia de Especificações)**, os desenvolvedores garantem que cada mudança permaneça rastreável, modular e alinhada aos requisitos de negócio.
+Escreva a especificação primeiro e depois codifique apenas o que ela descreve. No protocolo **SDG (Guia de Especificações)**, toda tarefa parte de um contrato escrito, então o motivo de cada mudança fica registrado ao lado do código.
 
 ## 🗺️ Estrutura do Projeto
 
-Este projeto organiza a documentação e as trilhas em espelhos de Inglês (`../docs/en/`) e Português Brasileiro (`../docs/pt-BR/`).
+A documentação e as trilhas existem em dois espelhos: Inglês (`../docs/en/`) e Português Brasileiro (`../docs/pt-BR/`).
 
 ### [Guias e Manuais](../docs/pt-BR/)
 
-- [**Guia de Especificações**](../docs/pt-BR/guia-especificacoes.md): Manual detalhado sobre o ciclo de tarefas de 5 fases (SPEC, PLAN, CODE, TEST, END).
-- [**Metodologia e Referências**](REFERENCES.pt-BR.md): Origens e DNA teórico por trás do padrão SPEC.
+- [**Guia de Especificações**](../docs/pt-BR/guia-especificacoes.md): o ciclo de tarefas de 5 fases (SPEC, PLAN, CODE, TEST, END) explicado passo a passo.
+- [**Metodologia e Referências**](REFERENCES.pt-BR.md): de onde vem o padrão SPEC e as fontes por trás dele.
 
 ### [Trilhas de Prompts](../docs/pt-BR/prompt-tracks/)
 
-Oferecemos três trilhas distintas adaptadas à maturidade do projeto:
+Três trilhas, uma para cada nível de maturidade do projeto:
 
-1. [**00 - Modo Lite**](../docs/pt-BR/prompt-tracks/00-modo-lite/): Fluxo de trabalho acelerado para landing pages e MVPs (Produtos Mínivos Viáveis).
-2. [**01 - Nova Evolução**](../docs/pt-BR/prompt-tracks/01-nova-evolucao/): Caminho padrão para construção de aplicações escaláveis do zero (Greenfield).
-3. [**02 - Modernização de Legado**](../docs/pt-BR/prompt-tracks/02-modernizacao-legado/): Guia técnico para refatoração e migração de sistemas existentes (Brownfield) usando o padrão Strangler Fig.
+1. [**00 - Modo Lite**](../docs/pt-BR/prompt-tracks/00-modo-lite/): ciclo curto para landing pages e MVPs.
+2. [**01 - Nova Evolução**](../docs/pt-BR/prompt-tracks/01-nova-evolucao/): caminho completo para uma aplicação greenfield, construída do zero.
+3. [**02 - Modernização de Legado**](../docs/pt-BR/prompt-tracks/02-modernizacao-legado/): refatoração e migração de um sistema brownfield com o padrão Strangler Fig.
+
+## 📖 Conceitos
+
+Os termos técnicos usados nas trilhas, agrupados por onde aparecem.
+
+**O ciclo:** as cinco fases de uma tarefa
+
+| Conceito | O que significa |
+| --- | --- |
+| [SPEC](../docs/pt-BR/guia-especificacoes.md#fase-spec) | O contrato escrito: contexto, métricas, escopo, regras e o que fica de fora. O agente não escreve código antes dele existir |
+| [PLAN](../docs/pt-BR/guia-especificacoes.md#fase-plan) | A estratégia técnica: quais arquivos mudam, em que ordem e quais os riscos envolvidos |
+| [CODE](../docs/pt-BR/guia-especificacoes.md#fase-code) | A execução, limitada ao que o PLAN descreveu |
+| [TEST](../docs/pt-BR/guia-especificacoes.md#fase-test) | A prova de que cada cenário da SPEC se comporta como está escrito |
+| [END](../docs/pt-BR/guia-especificacoes.md#fase-end) | A entrega: commit, documentação e fechamento da tarefa |
+
+<br>
+
+**Maturidade do projeto:** vocabulário para escolher a trilha
+
+| Conceito | O que significa |
+| --- | --- |
+| MVP | Produto Mínimo Viável. A menor versão que já entrega valor e pode ser testada com usuários reais |
+| Greenfield | Projeto sem código existente. Você escolhe a stack e a arquitetura sem legado a preservar |
+| Brownfield | Sistema já em produção. Toda mudança convive com código, dados e decisões que vieram antes |
+| Strangler Fig | Migração por substituição. O sistema novo é construído ao lado do antigo e assume rota por rota, até o antigo poder ser desligado. Sem reescrita total |
+
+<br>
+
+**Especificação:** as partes de um documento SPEC
+
+| Conceito | O que significa |
+| --- | --- |
+| Success Metrics | Os números que dizem que a entrega funcionou: tickets evitados, retenção, tempo de resposta |
+| User Story | Um cenário escrito do ponto de vista do usuário, descrevendo ação e resultado esperado |
+| Constraints | Regras de negócio que limitam a solução: elegibilidade, prazos, permissões |
+| Out of Scope | O que fica de fora desta entrega de propósito, escrito para o escopo não crescer em silêncio |
+| Definition of Done | O checklist que fecha a tarefa. Enquanto houver item em aberto, a tarefa não está pronta |
+
+<br>
+
+**Governança:** como agentes e documentação se mantêm consistentes
+
+| Conceito | O que significa |
+| --- | --- |
+| Trilha de prompts | Uma sequência numerada de arquivos Markdown. Cada arquivo é um passo do ciclo, executado em ordem |
+| Agente de IA | O modelo que lê os prompts e produz o trabalho: código, testes ou documentação |
+| Writing Soul | O padrão de escrita deste projeto: pedagógico, calmo e direto, sem enrolação |
 
 <details>
 <summary><b>Anatomia de uma boa SPEC (Exemplo)</b></summary>
@@ -87,9 +134,9 @@ Atualmente, o cancelamento de assinaturas é feito apenas via chat humano, geran
 
 ## Como utilizar estas trilhas
 
-1. **Identifique a Maturidade**: Determine se seu projeto é um protótipo, uma nova construção ou um sistema legado.
-2. **Siga o Ciclo**: Cada trilha consiste em arquivos Markdown numerados. Execute-os sequencialmente. Estes arquivos garantem que o seu processo de desenvolvimento siga um fluxo lógico e seguro.
-3. **Protocolo Writing Soul**: Toda a documentação segue o padrão **Writing Soul** — pedagógico, calmo e direto. Use estes prompts para alimentar seu Agente de IA para obter resultados consistentes e de alta qualidade.
+1. **Identifique a maturidade**: protótipo, construção nova ou sistema legado. Essa escolha define a trilha.
+2. **Siga o ciclo**: execute os arquivos numerados em ordem. Cada um deixa o projeto em um estado conhecido antes do próximo começar.
+3. **Mantenha a voz**: os prompts seguem o padrão **Writing Soul**. Use a mesma voz nos seus arquivos e o agente terá um só tom para copiar.
 
 ## Licença
 
@@ -97,4 +144,4 @@ Este projeto está licenciado sob a [Licença ISC](../LICENSE). [**Changelog**](
 
 ---
 
-_Desenvolvido para Staff Engineers e Desenvolvedores Nativos de IA que valorizam a precisão sobre a velocidade._
+_Feito para Staff Engineers e desenvolvedores nativos de IA que preferem precisão a velocidade._
