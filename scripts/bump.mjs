@@ -1,5 +1,5 @@
 /**
- * SDG-Agents: Bump & Changelog Automation
+ * Spec-Driven Guide: Bump & Changelog Automation
  * Automates semantic versioning and promotes Unreleased changes in CHANGELOG.md.
  */
 

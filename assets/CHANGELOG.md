@@ -11,6 +11,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+## [1.1.3] - 2026-08-19
+
+### Fixed
+- Renamed the project to **Spec-Driven Guide** in both READMEs, in the Claude Code governance header and in the release script. The leftovers from the previous rename (`SDG Prompts`, `SDG Agents`, `SDG-Agents`) left a reader with three names for one project.
+- Pointed the version badge and the `package.json` metadata at `spec-driven-guide-prompts`. The badge resolved `sdg-prompts`, a path that stopped answering once the repository was renamed, and `repository`, `bugs` and `homepage` relied on a GitHub redirect.
+- Linked the `spec-driven-guide` CLI from the navigation bar of both READMEs, beside `specdrivenguide.org`. Neither README pointed at the package that runs these tracks.
+
 ## [1.1.2] - 2026-07-22
 
 ### Fixed

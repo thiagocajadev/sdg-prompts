@@ -1,10 +1,10 @@
 <div align="center">
-  <h1>SDG Prompts · Spec-Driven Guide</h1>
+  <h1>Spec-Driven Guide</h1>
 
-  <img src="img/sdg-agents-icon-light.svg" alt="SDG Prompts Logo" width="480">
+  <img src="img/sdg-agents-icon-light.svg" alt="Spec-Driven Guide" width="480">
 
   <p>
-    <img src="https://img.shields.io/github/package-json/v/thiagocajadev/sdg-prompts/main?label=vers%C3%A3o" alt="Versão">
+    <img src="https://img.shields.io/github/package-json/v/thiagocajadev/spec-driven-guide-prompts/main?label=vers%C3%A3o" alt="Versão">
     <img src="https://img.shields.io/badge/License-ISC-blue.svg" alt="License: ISC">
     <img src="https://img.shields.io/badge/Protocol-SDG-orange.svg" alt="Protocol: SDG">
     <img src="https://img.shields.io/badge/Style-Writing%20Soul-blueviolet.svg" alt="Style: Writing Soul">
@@ -14,11 +14,12 @@
     <a href="../README.md"><b>🇺🇸 English Version</b></a> | 
     <a href="README.pt-BR.md">🇧🇷 Versão em Português</a> | 
     <a href="CHANGELOG.md"><b>📜 Changelog</b></a> | 
-    <a href="https://specdrivenguide.org"><b>🌐 specdrivenguide.org</b></a>
+    <a href="https://specdrivenguide.org"><b>🌐 specdrivenguide.org</b></a> | 
+    <a href="https://github.com/thiagocajadev/spec-driven-guide"><b>⚙️ spec-driven-guide</b></a>
   </p>
 </div>
 
-**SDG Prompts** é uma coleção de trilhas de prompts e regras de governança para times que trabalham ao lado de agentes de IA. Cada trilha é uma sequência de arquivos Markdown entregues ao agente, uma fase por vez.
+**Spec-Driven Guide** é uma coleção de trilhas de prompts e regras de governança para times que trabalham ao lado de agentes de IA. Cada trilha é uma sequência de arquivos Markdown entregues ao agente, uma fase por vez.
 
 ## 🎯 O Objetivo
 
